@@ -4,6 +4,23 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import clsx from "clsx";
 
+// Simple media query hook
+const useMediaQuery = (query) => {
+	const [matches, setMatches] = React.useState(false);
+
+	React.useEffect(() => {
+		const media = window.matchMedia(query);
+		if (media.matches !== matches) {
+			setMatches(media.matches);
+		}
+		const listener = () => setMatches(media.matches);
+		media.addEventListener("change", listener);
+		return () => media.removeEventListener("change", listener);
+	}, [matches, query]);
+
+	return matches;
+};
+
 export const Banner = (props) => {
 	const { headings } = {
 		...BannerDefaults,
@@ -13,25 +30,23 @@ export const Banner = (props) => {
 	const sectionRef = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
-		offset: ["start end", "end start"], // smoother on mobile
+		offset: ["start end", "end start"], // smoother for mobile
 	});
 
-	// Responsive transforms (less aggressive on small screens)
+	// Detect if screen is small
+	const isMobile = useMediaQuery("(max-width: 768px)");
+
+	// Responsive transforms
 	const xPartOne = useTransform(
 		scrollYProgress,
 		[0, 1],
-		[
-			window.innerWidth < 768 ? "-10%" : "-20%",
-			window.innerWidth < 768 ? "40%" : "80%",
-		]
+		isMobile ? ["-10%", "40%"] : ["-20%", "80%"]
 	);
+
 	const xPartTwo = useTransform(
 		scrollYProgress,
 		[0, 1],
-		[
-			window.innerWidth < 768 ? "10%" : "20%",
-			window.innerWidth < 768 ? "-40%" : "-80%",
-		]
+		isMobile ? ["10%", "-40%"] : ["20%", "-80%"]
 	);
 
 	return (
