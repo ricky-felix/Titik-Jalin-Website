@@ -13,17 +13,32 @@ export const Banner = (props) => {
 	const sectionRef = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
-		offset: ["start start", "end start"],
+		offset: ["start end", "end start"], // smoother on mobile
 	});
 
-	const xPartOne = useTransform(scrollYProgress, [0, 1], ["-20%", "80%"]);
-	const xPartTwo = useTransform(scrollYProgress, [0, 1], ["20%", "-80%"]);
+	// Responsive transforms (less aggressive on small screens)
+	const xPartOne = useTransform(
+		scrollYProgress,
+		[0, 1],
+		[
+			window.innerWidth < 768 ? "-10%" : "-20%",
+			window.innerWidth < 768 ? "40%" : "80%",
+		]
+	);
+	const xPartTwo = useTransform(
+		scrollYProgress,
+		[0, 1],
+		[
+			window.innerWidth < 768 ? "10%" : "20%",
+			window.innerWidth < 768 ? "-40%" : "-80%",
+		]
+	);
 
 	return (
 		<section
 			id="relume"
 			ref={sectionRef}
-			className="overflow-hidden px-[5%] py-32 md:py-48 lg:py-64 min-h-screen container"
+			className="overflow-hidden px-[5%] py-24 sm:py-32 md:py-48 lg:py-64 min-h-[150vh] sm:min-h-screen container"
 		>
 			<div className="flex flex-col whitespace-nowrap">
 				{headings.map((heading, index) => (
@@ -31,7 +46,7 @@ export const Banner = (props) => {
 						key={index}
 						style={index % 2 === 0 ? { x: xPartOne } : { x: xPartTwo }}
 						className={clsx(
-							"text-6xl font-bold md:text-7xl lg:text-8xl xl:text-9xl leading-tight sm:text-4xl xl:text-[6rem]",
+							"text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight xl:text-[6rem]",
 							{
 								"self-end": index % 2 !== 0,
 							}

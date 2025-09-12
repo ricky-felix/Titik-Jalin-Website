@@ -48,7 +48,7 @@ export function Sliders() {
 						{/* Animated text */}
 						<div className="relative min-h-[8rem]">
 							<motion.h2
-								className="absolute left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold whitespace-nowrap"
+								className="absolute left-1/2 -translate-x-1/2 mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl whitespace-nowrap"
 								style={relume.style(0)}
 							>
 								<span className="block text-secondary-500">Business</span>
@@ -58,14 +58,14 @@ export function Sliders() {
 							</motion.h2>
 
 							<motion.h2
-								className="absolute left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold whitespace-nowrap"
+								className="absolute left-1/2 -translate-x-1/2 mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl whitespace-nowrap"
 								style={relume.style(1)}
 							>
 								<span className="text-primary-500">Startup</span>
 							</motion.h2>
 
 							<motion.h2
-								className="absolute left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold whitespace-nowrap"
+								className="absolute left-1/2 -translate-x-1/2 mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl whitespace-nowrap"
 								style={relume.style(2)}
 							>
 								<span className="block bg-gradient-to-r from-accent-600 via-primary-500 to-secondary-600 bg-clip-text text-transparent">
@@ -75,7 +75,7 @@ export function Sliders() {
 							</motion.h2>
 
 							<motion.h2
-								className="absolute left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold whitespace-nowrap"
+								className="absolute left-1/2 -translate-x-1/2 mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl whitespace-nowrap"
 								style={relume.style(3)}
 							>
 								<span className="block text-neutral-800">
