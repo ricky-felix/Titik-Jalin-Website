@@ -47,7 +47,7 @@ export function Header() {
 						</div>
 
 						{/* Description Section */}
-						<div className="mx-[7.5%] flex flex-col justify-end">
+						<div className="flex flex-col justify-end">
 							<motion.div
 								className="mx-[7.5%] md:mx-0"
 								initial={{ opacity: 0, y: 40 }}
