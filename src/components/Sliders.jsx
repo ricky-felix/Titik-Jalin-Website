@@ -24,17 +24,25 @@ const useRelume = (isMobile) => {
 	const style = (index) => {
 		const totalItems = 4;
 
-		// Match scroll duration to container height
-		const sectionSize = isMobile ? 0.3 : 0.18;
+		// Fixed scroll calculations for bidirectional mobile scrolling
+		const sectionSize = isMobile ? 0.25 : 0.18;
+		const fadeBuffer = isMobile ? 0.05 : 0.15;
 		const start = index * sectionSize;
-		const end = index === totalItems - 1 ? 1 : start + sectionSize;
+		const end = Math.min(start + sectionSize, 1);
 
-		const inputRange = [start, start + 0.15, end - 0.15, end];
+		// Ensure proper ranges for all items
+		const fadeIn = Math.min(start + fadeBuffer, end - fadeBuffer);
+		const fadeOut = Math.max(end - fadeBuffer, fadeIn);
 
-		const outputOpacity =
-			index === totalItems - 1 ? [0, 1, 1, 1] : [0, 1, 1, 0];
+		const inputRange = [start, fadeIn, fadeOut, end];
 
-		const yValues = isMobile ? [15, 0, 0, -15] : [40, 0, 0, -40];
+		const outputOpacity = [0, 1, 1, 0];
+		// Special case for last item to stay visible
+		if (index === totalItems - 1) {
+			outputOpacity[3] = 1;
+		}
+
+		const yValues = isMobile ? [30, 0, 0, -30] : [40, 0, 0, -40];
 
 		return {
 			opacity: useTransform(scrollYProgress, inputRange, outputOpacity),
@@ -50,8 +58,8 @@ export function Sliders() {
 
 	return (
 		<section className="relative bg-gradient-to-b from-transparent via-neutral-50/30 to-primary-50/20">
-			{/* Scroll container → shorter on mobile */}
-			<div className={isMobile ? "relative h-[600vh]" : "relative h-[3000vh]"}>
+			{/* Scroll container → optimized for mobile bidirectional scrolling */}
+			<div className={isMobile ? "relative h-[5000vh]" : "relative h-[3000vh]"}>
 				{/* Sticky viewport */}
 				<div className="sticky top-0 flex min-h-screen items-center justify-center">
 					<div className="relative text-center max-w-6xl mx-auto px-4 sm:px-8">
@@ -69,7 +77,9 @@ export function Sliders() {
 								style={relume.style(0)}
 							>
 								<span className="block text-secondary-500">Business</span>
-								<span className="block text-neutral-800">Digital Transformation</span>
+								<span className="block text-neutral-800">
+									Digital Transformation
+								</span>
 							</motion.h2>
 
 							<motion.h2
@@ -93,7 +103,9 @@ export function Sliders() {
 								className="absolute left-1/2 -translate-x-1/2 mb-3 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold whitespace-nowrap"
 								style={relume.style(3)}
 							>
-								<span className="block text-neutral-800">Micro, Small, or Medium</span>
+								<span className="block text-neutral-800">
+									Micro, Small, or Medium
+								</span>
 								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
 									Enterprises
 								</span>

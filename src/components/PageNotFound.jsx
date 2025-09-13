@@ -7,48 +7,7 @@ import { Link } from "react-router-dom";
 
 export function PageNotFound() {
 	return (
-		<div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20">
-			{/* Background decorative elements */}
-			<div className="absolute inset-0 overflow-hidden pointer-events-none">
-				<motion.div
-					className="absolute top-20 -right-32 w-80 h-80 bg-primary-500/8 rounded-full blur-3xl"
-					animate={{
-						scale: [1, 1.2, 1],
-						rotate: [0, 180, 360],
-					}}
-					transition={{
-						duration: 20,
-						repeat: Infinity,
-						ease: "linear",
-					}}
-				/>
-				<motion.div
-					className="absolute bottom-32 -left-32 w-72 h-72 bg-secondary-500/10 rounded-full blur-3xl"
-					animate={{
-						scale: [1.1, 1, 1.1],
-						x: [0, 30, 0],
-						y: [0, -30, 0],
-					}}
-					transition={{
-						duration: 25,
-						repeat: Infinity,
-						ease: "easeInOut",
-					}}
-				/>
-				<motion.div
-					className="absolute top-1/3 left-1/4 w-64 h-64 bg-accent-500/12 rounded-full blur-3xl"
-					animate={{
-						scale: [1, 1.3, 1],
-						opacity: [0.3, 0.7, 0.3],
-					}}
-					transition={{
-						duration: 18,
-						repeat: Infinity,
-						ease: "easeInOut",
-					}}
-				/>
-			</div>
-
+		<div className="relative min-h-screen overflow-hidden">
 			<section className="relative z-10 px-[5%] py-12 md:py-16 lg:py-20">
 				<div className="container mx-auto">
 					<motion.div

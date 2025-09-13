@@ -19,17 +19,17 @@ const scrollToSection = (sectionId) => {
 export function Footer() {
 	return (
 		<footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20">
-			<div className="container">
-				<div className="grid grid-cols-1 items-center justify-center justify-items-center gap-x-[4vw] gap-y-12 pb-12 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:justify-between lg:gap-y-4 lg:pb-20">
-					<Link to="/">
+			<div className="container mx-auto w-full max-w-7xl">
+				<div className="grid grid-cols-1 items-center justify-items-center gap-x-[4vw] gap-y-12 pb-12 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:gap-y-4">
+					<Link to="/" className="lg:justify-self-start">
 						<img
 							src="./Titik-Jalin-Logo-no-bg.png"
 							width="120px"
 							alt="Logo image"
-							className="inline-block lg:justify-self-start"
+							className="inline-block"
 						/>
 					</Link>
-					<ul className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-[max-content] md:justify-center md:justify-items-start">
+					<ul className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-8">
 						<li className="font-semibold">
 							<button
 								onClick={() => scrollToSection("about-us")}
@@ -63,7 +63,7 @@ export function Footer() {
 							</button>
 						</li>
 					</ul>
-					<div className="flex items-start justify-start justify-items-center gap-x-3 lg:justify-self-end">
+					<div className="flex items-center justify-center gap-x-3 lg:justify-self-end">
 						<a href="www.instagram.com/titikjalin">
 							<BiLogoInstagram className="size-6" />
 						</a>
@@ -73,13 +73,11 @@ export function Footer() {
 					</div>
 				</div>
 				<div className="h-px w-full bg-black" />
-				<div className="flex flex-col-reverse items-center justify-center justify-items-center pt-6 pb-4 text-sm md:flex-row md:gap-x-6 md:pt-8 md:pb-0">
-					<ul className="grid grid-flow-row grid-cols-[max-content] items-center justify-center justify-items-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
-						<p className="mt-8 md:mt-0 text-center">
-							Titik Jalin, a UI/UX Design Studio. <br />
-							Operating remotely in Indonesia.
-						</p>
-					</ul>
+				<div className="flex items-center justify-center pt-6 pb-4 text-sm md:pt-8 md:pb-0">
+					<p className="text-center">
+						Titik Jalin, a UI/UX Design Studio. <br />
+						Operating remotely in Indonesia.
+					</p>
 				</div>
 			</div>
 		</footer>

@@ -23,8 +23,8 @@ export function Header() {
 			</div>
 
 			{/* Main Content */}
-			<div className="container flex max-h-[60rem] min-h-svh">
-				<div className="py-16 md:py-24 lg:py-28">
+			<div className="flex max-h-[60rem] min-h-svh justify-around">
+				<div className="container py-16 md:py-24 lg:py-28">
 					<div className="relative z-10 grid h-full auto-cols-fr grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
 						<div className="flex flex-col justify-start md:justify-center">
 							<motion.div

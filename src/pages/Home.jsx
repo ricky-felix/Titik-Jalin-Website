@@ -19,7 +19,7 @@ function Home() {
 	return (
 		<>
 			{/* Navigation */}
-			<div className="relative z-50">
+			<div className="z-50 sticky top-0 left-0 right-0 bg-white">
 				<Navbar />
 			</div>
 
@@ -78,10 +78,9 @@ function Home() {
 					</div>
 				</div>
 
-				<ThreeStepDesignProcess />
-
 				<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col items-center justify-center w-full">
+						<ThreeStepDesignProcess />
 						<motion.section
 							className="relative py-20 md:py-32"
 							initial={{ opacity: 0 }}
@@ -120,7 +119,7 @@ function Home() {
 			</main>
 
 			{/* Footer */}
-			<div className="relative z-10">
+			<div className="z-50 bg-white">
 				<Footer />
 			</div>
 		</>

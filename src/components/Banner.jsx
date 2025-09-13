@@ -28,47 +28,69 @@ export const Banner = (props) => {
 	};
 
 	const sectionRef = useRef(null);
-	const { scrollYProgress } = useScroll({
-		target: sectionRef,
-		offset: ["start end", "end start"], // smoother for mobile
-	});
-
-	// Detect if screen is small
 	const isMobile = useMediaQuery("(max-width: 768px)");
 
-	// Responsive transforms
-	const xPartOne = useTransform(
+	const { scrollYProgress } = useScroll({
+		target: sectionRef,
+		offset: ["start end", "end start"],
+	});
+
+	// Very conservative transforms that stay within viewport
+	// Use pixels instead of vw/percentage for better control
+
+	const mobileTransformOne = useTransform(
 		scrollYProgress,
-		[0, 1],
-		isMobile ? ["-10%", "40%"] : ["-20%", "80%"]
+		[0.2, 0.8],
+		[-50, 50]
+	);
+	const mobileTransformTwo = useTransform(
+		scrollYProgress,
+		[0.2, 0.8],
+		[50, -50]
 	);
 
-	const xPartTwo = useTransform(
+	const desktopTransformOne = useTransform(
 		scrollYProgress,
-		[0, 1],
-		isMobile ? ["10%", "-40%"] : ["20%", "-80%"]
+		[0.3, 0.7],
+		[-100, 100]
 	);
+	const desktopTransformTwo = useTransform(
+		scrollYProgress,
+		[0.3, 0.7],
+		[100, -100]
+	);
+
+	const xPartOne = isMobile ? mobileTransformOne : desktopTransformOne;
+	const xPartTwo = isMobile ? mobileTransformTwo : desktopTransformTwo;
 
 	return (
 		<section
 			id="relume"
 			ref={sectionRef}
-			className="overflow-hidden px-[5%] py-24 sm:py-32 md:py-48 lg:py-64 min-h-[150vh] sm:min-h-screen container"
+			className="w-full px-[5%] py-24 sm:py-32 md:py-48 lg:py-64"
+			style={{
+				maxWidth: "100vw",
+				overflow: "hidden",
+			}}
 		>
-			<div className="flex flex-col whitespace-nowrap">
+			<div className="w-full">
 				{headings.map((heading, index) => (
-					<motion.h1
+					<div
 						key={index}
-						style={index % 2 === 0 ? { x: xPartOne } : { x: xPartTwo }}
-						className={clsx(
-							"text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight xl:text-[6rem]",
-							{
-								"self-end": index % 2 !== 0,
-							}
-						)}
+						className={clsx("w-full relative", {
+							"text-right": index % 2 !== 0,
+							"text-left": index % 2 === 0,
+						})}
 					>
-						{heading}
-					</motion.h1>
+						<motion.h1
+							style={{
+								x: index % 2 === 0 ? xPartOne : xPartTwo,
+							}}
+							className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight whitespace-nowrap inline-block"
+						>
+							{heading}
+						</motion.h1>
+					</div>
 				))}
 			</div>
 		</section>
@@ -80,6 +102,6 @@ export default Banner;
 export const BannerDefaults = {
 	headings: [
 		"Our Design Process Our Design Process Our Design Process",
-		"Are as Follow Are as Follow",
+		"Are as Follow Are as Follow Are as Follow",
 	],
 };
