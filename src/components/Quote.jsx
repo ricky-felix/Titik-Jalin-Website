@@ -105,7 +105,7 @@ export function Quote() {
 							viewport={{ once: true }}
 						>
 							<span className="italic">"</span>Every great creation begins with
-							a single &nbsp;
+							a single&nbsp;
 							<span className="relative inline-block">
 								<span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text font-extrabold">
 									point of inspiration
@@ -120,7 +120,7 @@ export function Quote() {
 								/>
 							</span>
 							. From that initial dot, we weave together experiences that flow
-							&nbsp; into meaningful connections.
+							&nbsp;into meaningful connections.
 							<span className="italic">"</span>
 						</motion.div>
 
