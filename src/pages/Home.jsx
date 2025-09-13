@@ -44,7 +44,7 @@ function Home() {
 							className="relative py-20 md:py-32"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 1 }}
-							transition={{ duration: 0.8 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-150px" }}
 						>
 							<div id="about-us">
@@ -57,7 +57,7 @@ function Home() {
 							className="w-full"
 							initial={{ opacity: 0, scale: 0.95 }}
 							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.8, delay: 0.2 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-100px" }}
 						>
 							<Quote />
@@ -68,7 +68,7 @@ function Home() {
 							className="relative"
 							initial={{ opacity: 0, scale: 0.95 }}
 							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.8, delay: 0.1 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-100px" }}
 						>
 							<div id="process">
@@ -85,7 +85,7 @@ function Home() {
 							className="relative py-20 md:py-32"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 1 }}
-							transition={{ duration: 0.8 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-100px" }}
 						>
 							{/* Portfolio with staggered animation */}
@@ -93,7 +93,7 @@ function Home() {
 								className="w-full"
 								initial={{ opacity: 0, y: 40 }}
 								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.8, delay: 0.1 }}
+								transition={{ duration: 0.3 }}
 								viewport={{ once: true, margin: "-100px" }}
 							>
 								<div id="our-work">
@@ -106,7 +106,7 @@ function Home() {
 								className="w-full"
 								initial={{ opacity: 0, y: 50 }}
 								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.8, delay: 0.3 }}
+								transition={{ duration: 0.3 }}
 								viewport={{ once: true, margin: "-100px" }}
 							>
 								<div id="contact-us">

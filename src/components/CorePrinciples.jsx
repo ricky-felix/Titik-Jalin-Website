@@ -25,7 +25,7 @@ export function CorePrinciples() {
 								className="inline-flex items-center gap-2 mb-6"
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: 0.2 }}
+								transition={{ duration: 0.3 }}
 								viewport={{ once: true }}
 							>
 								<span className="bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700 font-semibold text-sm uppercase tracking-wider">
@@ -38,7 +38,7 @@ export function CorePrinciples() {
 								className="text-4xl font-bold md:text-5xl lg:text-6xl leading-tight"
 								initial={{ opacity: 0, y: 30 }}
 								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.8, delay: 0.3 }}
+								transition={{ duration: 0.3 }}
 								viewport={{ once: true }}
 							>
 								<span className="block text-neutral-800 mb-2">
@@ -52,7 +52,7 @@ export function CorePrinciples() {
 							className="relative group"
 							initial={{ opacity: 0, scale: 0.9 }}
 							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.8, delay: 0.4 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 							whileHover={{ scale: 1.02 }}
 						>
@@ -101,7 +101,7 @@ export function CorePrinciples() {
 						className="flex h-full flex-col justify-between"
 						initial={{ opacity: 0, x: 50 }}
 						whileInView={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.8, delay: 0.2 }}
+						transition={{ duration: 0.3 }}
 						viewport={{ once: true, margin: "-100px" }}
 					>
 						{/* Top Image */}
@@ -109,7 +109,7 @@ export function CorePrinciples() {
 							className="relative group mb-8 md:mb-12"
 							initial={{ opacity: 0, y: -30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.3 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 							whileHover={{ scale: 1.02 }}
 						>
@@ -145,7 +145,7 @@ export function CorePrinciples() {
 							className="relative"
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.5 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 						>
 							{/* Glassmorphism card */}

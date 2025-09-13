@@ -27,7 +27,7 @@ export const CTA = (props) => {
 	const [hoveredFeatureIdx, setHoveredFeatureIdx] = useState(null);
 
 	return (
-		<section className="relative overflow-hidden bg-gradient-to-br px-[5%] py-16 md:py-24 lg:py-28">
+		<section className="relative overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
 			{/* Background decorative elements */}
 			<div className="absolute inset-0 overflow-hidden pointer-events-none">
 				<motion.div
@@ -74,7 +74,7 @@ export const CTA = (props) => {
 					className="mx-auto mb-12 w-full max-w-4xl text-center md:mb-18 lg:mb-20"
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8 }}
+					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
 					{/* Decorative line */}
@@ -99,7 +99,7 @@ export const CTA = (props) => {
 						className="mb-3 font-semibold text-primary-300 tracking-wide md:mb-4"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.2 }}
+						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
 						{tagline}
@@ -108,7 +108,7 @@ export const CTA = (props) => {
 						className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-white"
 						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.4 }}
+						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
 						<span className="bg-gradient-to-r from-primary-300 via-secondary-300 to-accent-300 bg-clip-text text-black">
@@ -119,7 +119,7 @@ export const CTA = (props) => {
 						className="md:text-lg text-black"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.6 }}
+						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
 						{description}
@@ -129,7 +129,7 @@ export const CTA = (props) => {
 					className="flex flex-col justify-between gap-6 md:flex-row md:gap-8"
 					initial={{ opacity: 0, y: 40 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, delay: 0.8 }}
+					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
 					{features.map((feature, index) => (
@@ -141,7 +141,7 @@ export const CTA = (props) => {
 							onMouseLeave={() => setHoveredFeatureIdx(null)}
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 							whileHover={{ y: -8 }}
 						>
@@ -194,7 +194,7 @@ export const CTA = (props) => {
 												duration: 2,
 												repeat: Infinity,
 												ease: "easeInOut",
-												delay: index * 0.5,
+												delay: 0.3,
 											}}
 										/>
 										{feature.tagline}
@@ -220,13 +220,9 @@ export const CTA = (props) => {
 											>
 												<Button
 													{...feature.button}
-													className={`bg-gradient-to-r border text-white font-semibold px-6 py-3 transition-all duration-300 ${
-														index === 0
-															? "from-primary-500 to-secondary-500 border-primary-400/50 hover:from-primary-400 hover:to-secondary-400"
-															: "from-secondary-500 to-accent-500 border-secondary-400/50 hover:from-secondary-400 hover:to-accent-400"
-													}`}
+													className={`border text-white px-8 py-3 shadow-lg font-medium `}
 												>
-													Say Hello
+													Send us an email
 												</Button>
 											</motion.div>
 										</div>
@@ -279,11 +275,7 @@ export const CTA = (props) => {
 													>
 														<Button
 															{...feature.button}
-															className={`bg-gradient-to-r border text-white font-semibold px-8 py-3  transition-all duration-300 shadow-lg ${
-																index === 0
-																	? "from-primary-500 to-secondary-500 border-primary-400/50 hover:from-primary-400 hover:to-secondary-400 hover:shadow-primary-500/25"
-																	: "from-secondary-500 to-accent-500 border-secondary-400/50 hover:from-secondary-400 hover:to-accent-400 hover:shadow-secondary-500/25"
-															}`}
+															className={`border text-white px-8 py-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium`}
 														>
 															Send us an email
 														</Button>

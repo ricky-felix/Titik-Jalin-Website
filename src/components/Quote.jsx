@@ -53,7 +53,7 @@ export function Quote() {
 					className="mb-12 md:mb-16"
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8 }}
+					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
 					{/* Decorative line */}
@@ -78,7 +78,7 @@ export function Quote() {
 						className="text-xl md:text-2xl font-semibold text-neutral-700 tracking-wide"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.2 }}
+						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
 						What is the meaning of{" "}
@@ -91,7 +91,7 @@ export function Quote() {
 					className="relative"
 					initial={{ opacity: 0, scale: 0.95 }}
 					whileInView={{ opacity: 1, scale: 1 }}
-					transition={{ duration: 1, delay: 0.4 }}
+					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
 					{/* Glassmorphism quote card */}
@@ -101,7 +101,7 @@ export function Quote() {
 							className="text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-bold text-neutral-800 mb-8"
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.6 }}
+							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 						>
 							<span className="italic">"</span>Every great creation begins with
@@ -115,7 +115,7 @@ export function Quote() {
 									className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full"
 									initial={{ width: 0 }}
 									whileInView={{ width: "100%" }}
-									transition={{ duration: 1, delay: 1.2 }}
+									transition={{ duration: 0.3 }}
 									viewport={{ once: true }}
 								/>
 							</span>
@@ -130,7 +130,7 @@ export function Quote() {
 								className="flex flex-col items-center justify-center mt-8"
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.8, delay: 1 }}
+								transition={{ duration: 0.3 }}
 								viewport={{ once: true }}
 							>
 								<div className="text-center">

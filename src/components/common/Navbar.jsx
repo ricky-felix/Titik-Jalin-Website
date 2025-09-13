@@ -93,7 +93,7 @@ export function Navbar() {
 				{/* Desktop Contact Button */}
 				<div className="hidden lg:block">
 					<Button
-						className="px-6 py-2"
+						className="px-6 py-2 transform hover:-translate-y-0.5 font-medium"
 						title="Contact Us"
 						size="sm"
 						onClick={() => scrollToSection("contact-us")}
@@ -189,7 +189,7 @@ export function Navbar() {
 					</button>
 					<div className="pt-2">
 						<Button
-							className="w-full px-4 py-3"
+							className="w-full px-4 py-3 transform hover:-translate-y-0.5 font-medium"
 							title="Contact Us"
 							onClick={() => {
 								scrollToSection("contact-us");

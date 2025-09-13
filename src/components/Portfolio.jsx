@@ -5,7 +5,10 @@ import React from "react";
 
 export function Portfolio() {
 	return (
-		<section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+		<section
+			id="relume"
+			className="px-[5%] py-16 md:py-24 lg:py-28  min-h-screen"
+		>
 			<div className="container">
 				<div className="mb-12 md:mb-18 lg:mb-20">
 					<div className="mx-auto max-w-lg text-center">
@@ -13,49 +16,109 @@ export function Portfolio() {
 						<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
 							Explore Our Portfolio
 						</h2>
-						<p className="md:text-md">
+						<p className="md:text-md text-slate-600">
 							Transforming ideas into impactful designs.
 						</p>
 					</div>
 				</div>
 				<div className="grid grid-cols-1 gap-12 md:gap-16 lg:gap-20">
-					<div>
-						<div>
-							<a
-								href="https://www.tokspace.cloud"
-								target="_blank"
-								rel="noreferrer"
-							>
-								<img
-									src="./Tokspace_Homepage.png"
-									className="w-full object-cover"
-									alt="Tokspace website cover"
-								/>
-							</a>
-						</div>
-						<div className="mt-5 grid grid-cols-1 items-start justify-between gap-6 md:mt-6 md:grid-cols-2 md:gap-20">
-							<div>
-								<h3 className="text-xl font-bold md:text-2xl">
-									1) Tokspace <span className="italic">(In Progress)</span>
-								</h3>
-								<div className="mt-3 flex flex-wrap gap-2 md:mt-4">
-									<span className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700 font-semibold text-sm tracking-wider rounded-full border border-primary-200/50">
-										Branding Identity
-									</span>
-									<span className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700 font-semibold text-sm tracking-wider rounded-full border border-primary-200/50">
-										Full Stack Cloud Development
-									</span>
-									<span className="px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700 font-semibold text-sm tracking-wider rounded-full border border-primary-200/50">
-										Industrial Design
-									</span>
+					{/* First Project - Tokspace */}
+					<div className="group relative">
+						{/* Glassmorphism Card */}
+						<div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:bg-white/15 hover:border-white/30">
+							{/* Content */}
+							<div className="relative z-10">
+								{/* Image Container with Animation */}
+								<div className="relative overflow-hidden shadow-lg">
+									<a
+										href="https://www.tokspace.cloud"
+										target="_blank"
+										rel="noreferrer"
+										className="block relative group/image"
+									>
+										{/* External Link Indicator */}
+										<div className="absolute top-4 right-4 z-20 ">
+											<div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+												<svg
+													className="w-5 h-5"
+													fill="none"
+													stroke="currentColor"
+													viewBox="0 0 24 24"
+												>
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth={2}
+														d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+													/>
+												</svg>
+											</div>
+										</div>
+
+										{/* Hover Overlay */}
+										<div className="absolute inset-0 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
+
+										{/* Image */}
+										<img
+											src="./Tokspace_Homepage.png"
+											className="w-full object-cover transform group-hover/image:scale-105 transition-transform duration-500"
+											alt="Tokspace website cover"
+										/>
+									</a>
 								</div>
-							</div>
-							<div>
-								<p>
-									Tokspace empowers creators in Indonesia with cutting-edge 3D
-									printing technology and modular design kits. Located in Medan,
-									Indonesia.
-								</p>
+
+								{/* Project Details */}
+								<div className="mt-6 grid grid-cols-1 items-start justify-between gap-6 md:mt-8 md:grid-cols-2 md:gap-12">
+									<div>
+										<h3 className="text-xl font-bold md:text-2xl text-slate-900 mb-4">
+											1) Tokspace{" "}
+											<span className="italic text-yellow-600 font-medium">
+												(In Progress)
+											</span>
+										</h3>
+										<div className="flex flex-wrap gap-3">
+											<span className="px-4 py-2 font-semibold text-sm tracking-wider rounded-full border border-black backdrop-blur-sm hover:bg-primary-500 focus:bg-primary-500 transition-colors duration-300">
+												Branding Identity
+											</span>
+											<span className="px-4 py-2 font-semibold text-sm tracking-wider rounded-full border border-black backdrop-blur-sm hover:bg-secondary-500 focus:bg-secondary-500 transition-colors duration-300">
+												Full Stack Cloud Development
+											</span>
+											<span className="px-4 py-2 font-semibold text-sm tracking-wider rounded-full border border-black backdrop-blur-sm hover:bg-neutral-500 focus:bg-neutral-500 transition-colors duration-300">
+												Industrial Design
+											</span>
+										</div>
+									</div>
+									<div className="backdrop-blur-sm p-6 border border-white/30">
+										<p className="text-slate-700 leading-relaxed">
+											Tokspace empowers creators in Indonesia with cutting-edge
+											3D printing technology and modular design kits. Located in
+											Medan, Indonesia.
+										</p>
+
+										{/* Visit Website Button */}
+										<a
+											href="https://www.tokspace.cloud"
+											target="_blank"
+											rel="noreferrer"
+											className="inline-flex items-center mt-4 px-4 py-2 font-medium border transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+										>
+											Visit Website
+											<svg
+												className="ml-2 w-4 h-4"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+												/>
+											</svg>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
