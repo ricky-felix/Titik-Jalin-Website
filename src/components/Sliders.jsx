@@ -59,7 +59,7 @@ export function Sliders() {
 	return (
 		<section className="relative bg-gradient-to-b from-transparent via-neutral-50/30 to-primary-50/20">
 			{/* Scroll container → optimized for mobile bidirectional scrolling */}
-			<div className={isMobile ? "relative h-[2000vh]" : "relative h-[3000vh]"}>
+			<div className={isMobile ? "relative h-[800vh]" : "relative h-[3000vh]"}>
 				{/* Sticky viewport */}
 				<div className="sticky top-0 flex min-h-screen items-center justify-center">
 					<div className="relative text-center max-w-6xl mx-auto px-4 sm:px-8">
@@ -106,9 +106,7 @@ export function Sliders() {
 								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
 									Micro, Small, or Medium
 								</span>
-								<span className="block text-neutral-800">
-									Enterprises
-								</span>
+								<span className="block text-neutral-800">Enterprises</span>
 							</motion.h2>
 						</div>
 					</div>
