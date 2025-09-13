@@ -27,7 +27,7 @@ export const CTA = (props) => {
 	const [hoveredFeatureIdx, setHoveredFeatureIdx] = useState(null);
 
 	return (
-		<section className="relative overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
+		<section className="relative overflow-hidden px-[5%]">
 			{/* Background decorative elements */}
 			<div className="absolute inset-0 overflow-hidden pointer-events-none">
 				<motion.div
