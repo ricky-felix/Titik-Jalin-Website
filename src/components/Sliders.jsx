@@ -103,10 +103,10 @@ export function Sliders() {
 								className="absolute left-1/2 -translate-x-1/2 mb-3 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold whitespace-nowrap"
 								style={relume.style(3)}
 							>
-								<span className="block text-neutral-800">
+								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
 									Micro, Small, or Medium
 								</span>
-								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
+								<span className="block text-neutral-800">
 									Enterprises
 								</span>
 							</motion.h2>
