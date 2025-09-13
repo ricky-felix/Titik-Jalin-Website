@@ -72,19 +72,19 @@ export function Navbar() {
 				<nav className="hidden lg:flex items-center space-x-6">
 					<button
 						onClick={() => scrollToSection("about-us")}
-						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200"
+						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						About Us
 					</button>
 					<button
 						onClick={() => scrollToSection("process")}
-						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200"
+						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Process
 					</button>
 					<button
 						onClick={() => scrollToSection("our-work")}
-						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200"
+						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Work
 					</button>
@@ -93,7 +93,7 @@ export function Navbar() {
 				{/* Desktop Contact Button */}
 				<div className="hidden lg:block">
 					<Button
-						className="px-6 py-2 transform hover:-translate-y-0.5 font-medium"
+						className="px-6 py-2 transform hover:-translate-y-0.5 font-medium cursor-pointer"
 						title="Contact Us"
 						size="sm"
 						onClick={() => scrollToSection("contact-us")}
@@ -165,7 +165,7 @@ export function Navbar() {
 							scrollToSection("about-us");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200"
+						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						About Us
 					</button>
@@ -174,7 +174,7 @@ export function Navbar() {
 							scrollToSection("process");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200"
+						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Process
 					</button>
@@ -183,13 +183,13 @@ export function Navbar() {
 							scrollToSection("our-work");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200"
+						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Work
 					</button>
 					<div className="pt-2">
 						<Button
-							className="w-full px-4 py-3 transform hover:-translate-y-0.5 font-medium"
+							className="w-full px-4 py-3 transform hover:-translate-y-0.5 font-medium cursor-pointer"
 							title="Contact Us"
 							onClick={() => {
 								scrollToSection("contact-us");

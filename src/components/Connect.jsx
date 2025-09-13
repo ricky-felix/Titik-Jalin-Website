@@ -135,7 +135,6 @@ export const CTA = (props) => {
 					{features.map((feature, index) => (
 						<motion.a
 							key={index}
-							href={feature.url}
 							className="group relative flex w-full flex-col overflow-hidden md:w-1/2 lg:h-full lg:transition-all lg:duration-500 lg:hover:w-[70%] lg:hover:scale-[1.02]"
 							onMouseEnter={() => setHoveredFeatureIdx(index)}
 							onMouseLeave={() => setHoveredFeatureIdx(null)}
@@ -222,7 +221,9 @@ export const CTA = (props) => {
 													{...feature.button}
 													className={`border text-white px-8 py-3 shadow-lg font-medium `}
 												>
-													Send us an email
+													<a href="mailto:titikjalin@outlook.co.id">
+														Send us an email
+													</a>
 												</Button>
 											</motion.div>
 										</div>
@@ -277,7 +278,9 @@ export const CTA = (props) => {
 															{...feature.button}
 															className={`border text-white px-8 py-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium`}
 														>
-															Send us an email
+															<a href="mailto:titikjalin@outlook.co.id">
+																Send us an email
+															</a>
 														</Button>
 													</motion.div>
 												</motion.div>
@@ -302,7 +305,6 @@ export const ConnectDefaults = {
 	features: [
 		{
 			tagline: "Quotation",
-			url: "#",
 			heading: "Reach Out and Start Your Journey.",
 			description:
 				"We're excited to hear from you and explore how we can collaborate together.",
@@ -318,7 +320,6 @@ export const ConnectDefaults = {
 		},
 		{
 			tagline: "Collaborate",
-			url: "#",
 			heading: "Let's Work on a Project Together.",
 			description:
 				"Your ideas are the dots that can transform into something amazing.",
