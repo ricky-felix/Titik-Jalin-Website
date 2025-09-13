@@ -105,14 +105,14 @@ export function Quote() {
 							viewport={{ once: true }}
 						>
 							<span className="italic">"</span>Every great creation begins with
-							a single
+							a single &nbsp;
 							<span className="relative inline-block">
 								<span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text font-extrabold">
 									point of inspiration
 								</span>
 								{/* Animated underline */}
 								<motion.div
-									className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full"
+									className="absolute -bottom-1 left-0 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full"
 									initial={{ width: 0 }}
 									whileInView={{ width: "100%" }}
 									transition={{ duration: 0.3 }}
@@ -120,7 +120,7 @@ export function Quote() {
 								/>
 							</span>
 							. From that initial dot, we weave together experiences that flow
-							into meaningful connections.
+							&nbsp; into meaningful connections.
 							<span className="italic">"</span>
 						</motion.div>
 
