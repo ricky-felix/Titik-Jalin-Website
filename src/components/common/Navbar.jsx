@@ -57,34 +57,34 @@ export function Navbar() {
 			className="z-[999] w-full border-b border-border-primary"
 		>
 			{/* Mobile and Desktop Header */}
-			<div className="flex items-center justify-between md:min-h-18 px-4 md:px-6 lg:px-[5%]">
+			<div className="flex items-center justify-between h-14 md:h-16 px-4 md:px-6 lg:px-[5%]">
 				{/* Logo */}
 				<Link to="/" className="flex-shrink-0">
 					<img
 						src="./Titik-Jalin-Logo-no-bg.png"
-						width="120"
+						width="80px"
 						alt="Logo image"
 						className="max-w-full h-auto"
 					/>
 				</Link>
 
 				{/* Desktop Navigation */}
-				<nav className="hidden lg:flex items-center space-x-6">
+				<nav className="hidden lg:flex items-center space-x-4">
 					<button
 						onClick={() => scrollToSection("about-us")}
-						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="px-3 py-1 text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						About Us
 					</button>
 					<button
 						onClick={() => scrollToSection("process")}
-						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="px-3 py-1 text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Process
 					</button>
 					<button
 						onClick={() => scrollToSection("our-work")}
-						className="px-4 py-2 text-base hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="px-3 py-1 text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Work
 					</button>
@@ -93,7 +93,7 @@ export function Navbar() {
 				{/* Desktop Contact Button */}
 				<div className="hidden lg:block">
 					<Button
-						className="px-6 py-2 transform hover:-translate-y-0.5 font-medium cursor-pointer"
+						className="px-4 py-1.5 transform hover:-translate-y-0.5 font-medium cursor-pointer text-sm"
 						title="Contact Us"
 						size="sm"
 						onClick={() => scrollToSection("contact-us")}
@@ -104,14 +104,14 @@ export function Navbar() {
 
 				{/* Mobile Hamburger Menu */}
 				<button
-					className="flex lg:hidden size-12 flex-col items-center justify-center flex-shrink-0"
+					className="flex lg:hidden size-10 flex-col items-center justify-center flex-shrink-0"
 					onClick={useActive.toggleMobileMenu}
 				>
 					<motion.span
-						className="my-[3px] h-0.5 w-6 bg-black"
+						className="my-[2px] h-0.5 w-5 bg-black"
 						animate={useActive.animateMobileMenuButtonSpan}
 						variants={{
-							open: { translateY: 8, transition: { delay: 0.1 } },
+							open: { translateY: 6, transition: { delay: 0.1 } },
 							rotatePhase: { rotate: -45, transition: { delay: 0.2 } },
 							closed: {
 								translateY: 0,
@@ -121,21 +121,21 @@ export function Navbar() {
 						}}
 					/>
 					<motion.span
-						className="my-[3px] h-0.5 w-6 bg-black"
+						className="my-[2px] h-0.5 w-5 bg-black"
 						animate={useActive.animateMobileMenu}
 						variants={{
 							open: { width: 0, transition: { duration: 0.1 } },
 							closed: {
-								width: "1.5rem",
+								width: "1.25rem",
 								transition: { delay: 0.3, duration: 0.2 },
 							},
 						}}
 					/>
 					<motion.span
-						className="my-[3px] h-0.5 w-6 bg-black"
+						className="my-[2px] h-0.5 w-5 bg-black"
 						animate={useActive.animateMobileMenuButtonSpan}
 						variants={{
-							open: { translateY: -8, transition: { delay: 0.1 } },
+							open: { translateY: -6, transition: { delay: 0.1 } },
 							rotatePhase: { rotate: 45, transition: { delay: 0.2 } },
 							closed: {
 								translateY: 0,
@@ -159,13 +159,13 @@ export function Navbar() {
 				transition={{ duration: 0.4 }}
 				className="lg:hidden overflow-hidden"
 			>
-				<nav className="px-4 pb-4 space-y-2">
+				<nav className="px-4 pb-3 space-y-1">
 					<button
 						onClick={() => {
 							scrollToSection("about-us");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						About Us
 					</button>
@@ -174,7 +174,7 @@ export function Navbar() {
 							scrollToSection("process");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Process
 					</button>
@@ -183,13 +183,13 @@ export function Navbar() {
 							scrollToSection("our-work");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-3 text-left text-md hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
 					>
 						Our Work
 					</button>
-					<div className="pt-2">
+					<div className="pt-1">
 						<Button
-							className="w-full px-4 py-3 transform hover:-translate-y-0.5 font-medium cursor-pointer"
+							className="w-full px-4 py-2 transform hover:-translate-y-0.5 font-medium cursor-pointer text-sm"
 							title="Contact Us"
 							onClick={() => {
 								scrollToSection("contact-us");

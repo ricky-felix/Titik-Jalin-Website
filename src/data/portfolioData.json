@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"title": "Tokspace",
+		"status": "In Progress",
+		"statusColor": "text-yellow-600",
+		"image": "./Tokspace_Homepage.png",
+		"alt": "Tokspace website cover",
+		"url": "https://www.tokspace.cloud",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "Full Stack Cloud Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Industrial Design",
+				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
+			}
+		],
+		"description": "Tokspace empowers creators in Indonesia with cutting-edge 3D printing technology and modular design kits. Located in Medan, Indonesia."
+	}
+]

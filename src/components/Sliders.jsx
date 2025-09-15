@@ -24,9 +24,9 @@ const useRelume = (isMobile) => {
 	const style = (index) => {
 		const totalItems = 4;
 
-		// Fixed scroll calculations for bidirectional mobile scrolling
-		const sectionSize = isMobile ? 0.25 : 0.18;
-		const fadeBuffer = isMobile ? 0.05 : 0.15;
+		// Shortened scroll calculations for faster animation
+		const sectionSize = isMobile ? 0.15 : 0.12; // Reduced from 0.25/0.18
+		const fadeBuffer = isMobile ? 0.03 : 0.08; // Reduced from 0.05/0.15
 		const start = index * sectionSize;
 		const end = Math.min(start + sectionSize, 1);
 
@@ -58,8 +58,8 @@ export function Sliders() {
 
 	return (
 		<section className="relative bg-gradient-to-b from-transparent via-neutral-50/30 to-primary-50/20">
-			{/* Scroll container → optimized for mobile bidirectional scrolling */}
-			<div className={isMobile ? "relative h-[4000vh]" : "relative h-[3000vh]"}>
+			{/* Scroll container → adjusted to ensure all 4 animations complete */}
+			<div className={isMobile ? "relative h-[1700vh]" : "relative h-[1100vh]"}>
 				{/* Sticky viewport */}
 				<div className="sticky top-0 flex min-h-screen items-center justify-center">
 					<div className="relative text-center max-w-6xl mx-auto px-4 sm:px-8">
