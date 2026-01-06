@@ -104,7 +104,7 @@ export function Sliders() {
 								style={relume.style(3)}
 							>
 								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
-									Micro, Small, or Medium
+									Micro or Small
 								</span>
 								<span className="block text-neutral-800">Enterprises</span>
 							</motion.h2>

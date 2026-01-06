@@ -1,5 +1,4 @@
 const path = require("path"); // Node.js path module for resolving paths
-import { webpackPlugin as utwm } from "unplugin-tailwindcss-mangle";
 
 module.exports = {
 	// Entry point(s) of your application

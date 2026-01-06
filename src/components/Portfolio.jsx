@@ -1,8 +1,5 @@
 "use client";
 
-import { Badge } from "@relume_io/relume-ui";
-import React from "react";
-
 import portfolioProjects from "../data/portfolioData.json";
 
 export function Portfolio() {
@@ -74,11 +71,9 @@ export function Portfolio() {
 									<div className="mt-6 grid grid-cols-1 items-start justify-between gap-6 md:mt-8 md:grid-cols-2 md:gap-12">
 										<div>
 											<h3 className="text-xl font-bold md:text-2xl text-slate-900 mb-4">
-												{project.id}) {project.title}{" "}
+												{project.id}. {project.title}{" "}
 												{project.status && (
-													<span
-														className={`italic ${project.statusColor} font-medium`}
-													>
+													<span className={`${project.statusColor} bold`}>
 														({project.status})
 													</span>
 												)}
@@ -128,8 +123,6 @@ export function Portfolio() {
 						</div>
 					))}
 				</div>
-
-				<div className="mt-12 flex justify-center md:mt-18 lg:mt-20" />
 			</div>
 		</section>
 	);

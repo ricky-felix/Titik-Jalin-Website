@@ -2,8 +2,8 @@
 	{
 		"id": 1,
 		"title": "Tokspace",
-		"status": "In Progress",
-		"statusColor": "text-yellow-600",
+		"status": "Live",
+		"statusColor": "text-green-600",
 		"image": "./Tokspace_Homepage.png",
 		"alt": "Tokspace website cover",
 		"url": "https://www.tokspace.cloud",
@@ -13,7 +13,7 @@
 				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
 			},
 			{
-				"name": "Full Stack Cloud Development",
+				"name": "Full Stack Development",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			},
 			{
