@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 
 export function CorePrinciples() {
@@ -61,9 +60,10 @@ export function CorePrinciples() {
 
 							<div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-2 border border-white/50">
 								<img
-									src="Human_Digital.png"
+									src="Human_Digital.webp"
 									className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
 									alt="Human Digital - Core Principles Illustration"
+									loading="lazy"
 								/>
 							</div>
 
@@ -118,9 +118,10 @@ export function CorePrinciples() {
 
 							<div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-2 border border-white/50">
 								<img
-									src="./Human_Pen.png"
+									src="./Human_Pen.webp"
 									className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
 									alt="Human Pen - Design Process Illustration"
+									loading="lazy"
 								/>
 							</div>
 

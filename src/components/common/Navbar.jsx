@@ -2,7 +2,7 @@
 
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -37,6 +37,18 @@ const useRelume = () => {
 		: "closed";
 	const animateDropdownMenu = isDropdownOpen ? "open" : "close";
 	const animateDropdownMenuIcon = isDropdownOpen ? "rotated" : "initial";
+
+	// Close mobile menu on Escape key
+	useEffect(() => {
+		const handleEscape = (e) => {
+			if (e.key === "Escape" && isMobileMenuOpen) {
+				setIsMobileMenuOpen(false);
+			}
+		};
+		window.addEventListener("keydown", handleEscape);
+		return () => window.removeEventListener("keydown", handleEscape);
+	}, [isMobileMenuOpen]);
+
 	return {
 		toggleMobileMenu,
 		openOnDesktopDropdownMenu,
@@ -61,9 +73,9 @@ export function Navbar() {
 				{/* Logo */}
 				<Link to="/" className="flex-shrink-0">
 					<img
-						src="./Titik-Jalin-Logo-no-bg.png"
+						src="./Titik-Jalin-Logo-no-bg.webp"
 						width="80px"
-						alt="Logo image"
+						alt="Titik Jalin logo"
 						className="max-w-full h-auto"
 					/>
 				</Link>
@@ -72,19 +84,22 @@ export function Navbar() {
 				<nav className="hidden lg:flex items-center space-x-4">
 					<button
 						onClick={() => scrollToSection("about-us")}
-						className="px-3 py-1 text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="px-3 py-1 text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to About Us section"
 					>
 						About Us
 					</button>
 					<button
 						onClick={() => scrollToSection("process")}
-						className="px-3 py-1 text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="px-3 py-1 text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to Our Process section"
 					>
 						Our Process
 					</button>
 					<button
 						onClick={() => scrollToSection("our-work")}
-						className="px-3 py-1 text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="px-3 py-1 text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to Our Work section"
 					>
 						Our Work
 					</button>
@@ -93,10 +108,11 @@ export function Navbar() {
 				{/* Desktop Contact Button */}
 				<div className="hidden lg:block">
 					<Button
-						className="px-4 py-1.5 transform hover:-translate-y-0.5 font-medium cursor-pointer text-sm"
+						className="px-4 py-1.5 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 font-medium cursor-pointer text-sm"
 						title="Contact Us"
 						size="sm"
 						onClick={() => scrollToSection("contact-us")}
+						aria-label="Navigate to Contact Us section"
 					>
 						Contact Us
 					</Button>
@@ -104,8 +120,10 @@ export function Navbar() {
 
 				{/* Mobile Hamburger Menu */}
 				<button
-					className="flex lg:hidden size-10 flex-col items-center justify-center flex-shrink-0"
+					className="flex lg:hidden size-10 flex-col items-center justify-center flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded"
 					onClick={useActive.toggleMobileMenu}
+					aria-label="Toggle mobile menu"
+					aria-expanded={useActive.animateMobileMenu === "open"}
 				>
 					<motion.span
 						className="my-[2px] h-0.5 w-5 bg-black"
@@ -165,7 +183,8 @@ export function Navbar() {
 							scrollToSection("about-us");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to About Us section"
 					>
 						About Us
 					</button>
@@ -174,7 +193,8 @@ export function Navbar() {
 							scrollToSection("process");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to Our Process section"
 					>
 						Our Process
 					</button>
@@ -183,18 +203,20 @@ export function Navbar() {
 							scrollToSection("our-work");
 							useActive.toggleMobileMenu();
 						}}
-						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to Our Work section"
 					>
 						Our Work
 					</button>
 					<div className="pt-1">
 						<Button
-							className="w-full px-4 py-2 transform hover:-translate-y-0.5 font-medium cursor-pointer text-sm"
+							className="w-full px-4 py-2 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 font-medium cursor-pointer text-sm"
 							title="Contact Us"
 							onClick={() => {
 								scrollToSection("contact-us");
 								useActive.toggleMobileMenu();
 							}}
+							aria-label="Navigate to Contact Us section"
 						>
 							Contact Us
 						</Button>

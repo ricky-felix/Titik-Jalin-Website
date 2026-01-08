@@ -309,7 +309,7 @@ export const ConnectDefaults = {
 			description:
 				"We're excited to hear from you and explore how we can collaborate together.",
 			image: {
-				src: "IT_Office_Hand.png",
+				src: "IT_Office_Hand.webp",
 				alt: "Relume placeholder image 1",
 			},
 			button: {
@@ -324,7 +324,7 @@ export const ConnectDefaults = {
 			description:
 				"Your ideas are the dots that can transform into something amazing.",
 			image: {
-				src: "./Collaborate_Night_Office.png",
+				src: "./Collaborate_Night_Office.webp",
 				alt: "Relume placeholder image 2",
 			},
 			button: {

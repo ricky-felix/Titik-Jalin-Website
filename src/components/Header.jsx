@@ -9,7 +9,7 @@ export function Header() {
 			{/* Background Image with Overlay */}
 			<div className="absolute inset-0 z-0">
 				<motion.img
-					src="./Abstract_Header.png"
+					src="./Abstract_Header.webp"
 					className="size-full object-cover"
 					alt="Abstract design background"
 					initial={{ scale: 1.1, opacity: 0 }}

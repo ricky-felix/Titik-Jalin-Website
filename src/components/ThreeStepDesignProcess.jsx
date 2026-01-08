@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useScroll = () => {
 	const [activeSection, setActiveSection] = useState(0);
@@ -76,25 +76,25 @@ export default function ThreeStepDesignProcess() {
 			title: "Market Research",
 			description:
 				"We start by understanding your brand, goals, and target audience through comprehensive research and strategic planning creating a project brief and timeline.",
-			image: "./Market_Research.png",
+			image: "./Market_Research.webp",
 		},
 		{
 			title: "Design Iterations",
 			description:
 				"Our creative team develops innovative solutions that align with your brand identity and user experience requirements. We iterate on the design based on stakeholders feedback and testing.",
-			image: "./Digital_Moodboard.png",
+			image: "./Digital_Moodboard.webp",
 		},
 		{
 			title: "Implementation & Testing",
 			description:
 				"We execute the final design with precision, ensuring seamless implementation and ongoing support for your project. We test the design to ensure it meets needs and expectations.",
-			image: "./Implementation_&_Testing.png",
+			image: "./Implementation_&_Testing.webp",
 		},
 		{
 			title: "Project Signoff",
 			description:
 				"We measure results and optimize performance to ensure your design achieves its intended impact, business objectives, and success outcome.",
-			image: "./Meeting_Handshake.png",
+			image: "./Meeting_Handshake.webp",
 		},
 	];
 
@@ -148,6 +148,7 @@ export default function ThreeStepDesignProcess() {
 											src={step.image}
 											className="w-full aspect-[4/3] object-cover"
 											alt={`${step.title} step illustration`}
+											loading="lazy"
 											onError={(e) => {
 												e.target.style.display = "none";
 												const placeholder = e.target.nextElementSibling;

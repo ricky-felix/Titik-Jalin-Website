@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { BiLogoInstagram, BiLogoLinkedinSquare } from "react-icons/bi";
 
 import { Link } from "react-router-dom";
@@ -23,9 +22,9 @@ export function Footer() {
 				<div className="grid grid-cols-1 items-center justify-items-center gap-x-[4vw] gap-y-12 pb-12 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:gap-y-4">
 					<Link to="/" className="lg:justify-self-start">
 						<img
-							src="./Titik-Jalin-Logo-no-bg.png"
+							src="./Titik-Jalin-Logo-no-bg.webp"
 							width="120px"
-							alt="Logo image"
+							alt="Titik Jalin logo"
 							className="inline-block"
 						/>
 					</Link>
@@ -34,6 +33,7 @@ export function Footer() {
 							<button
 								onClick={() => scrollToSection("about-us")}
 								className="hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+								aria-label="Navigate to About Us section"
 							>
 								About Us
 							</button>
@@ -42,6 +42,7 @@ export function Footer() {
 							<button
 								onClick={() => scrollToSection("process")}
 								className="hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+								aria-label="Navigate to Our Process section"
 							>
 								Our Process
 							</button>
@@ -50,6 +51,7 @@ export function Footer() {
 							<button
 								onClick={() => scrollToSection("our-work")}
 								className="hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+								aria-label="Navigate to Our Work section"
 							>
 								Our Work
 							</button>
@@ -58,16 +60,27 @@ export function Footer() {
 							<button
 								onClick={() => scrollToSection("contact-us")}
 								className="hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+								aria-label="Navigate to Contact Us section"
 							>
 								Contact Us
 							</button>
 						</li>
 					</ul>
 					<div className="flex items-center justify-center gap-x-3 lg:justify-self-end">
-						<a href="www.instagram.com/titikjalin">
+						<a
+							href="https://www.instagram.com/titikjalin"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Visit Titik Jalin on Instagram"
+						>
 							<BiLogoInstagram className="size-6" />
 						</a>
-						<a href="https://www.linkedin.com/company/108687372/">
+						<a
+							href="https://www.linkedin.com/company/108687372/"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Visit Titik Jalin on LinkedIn"
+						>
 							<BiLogoLinkedinSquare className="size-6" />
 						</a>
 					</div>

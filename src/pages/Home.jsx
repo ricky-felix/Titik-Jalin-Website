@@ -24,7 +24,7 @@ function Home() {
 			</div>
 
 			{/* Main Content */}
-			<main>
+			<main id="main-content">
 				{/* Hero Section */}
 				<motion.section
 					initial={{ opacity: 0 }}

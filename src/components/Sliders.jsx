@@ -59,7 +59,7 @@ export function Sliders() {
 	return (
 		<section className="relative bg-gradient-to-b from-transparent via-neutral-50/30 to-primary-50/20">
 			{/* Scroll container → adjusted to ensure all 4 animations complete */}
-			<div className={isMobile ? "relative h-[1700vh]" : "relative h-[1100vh]"}>
+			<div className={isMobile ? "relative h-[800vh]" : "relative h-[600vh]"}>
 				{/* Sticky viewport */}
 				<div className="sticky top-0 flex min-h-screen items-center justify-center">
 					<div className="relative text-center max-w-6xl mx-auto px-4 sm:px-8">
