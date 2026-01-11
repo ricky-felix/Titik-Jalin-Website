@@ -22,5 +22,29 @@
 			}
 		],
 		"description": "Tokspace empowers creators in Indonesia with cutting-edge 3D printing technology and modular design kits. Located in Medan, Indonesia."
+	},
+	{
+		"id": 2,
+		"title": "Arisan Digital",
+		"status": "Working",
+		"statusColor": "text-yellow-600",
+		"image": "./Arisan_Digital_Homepage.webp",
+		"alt": "Arisan Digital website cover",
+		"url": "https://www.arisandigital.com",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "Full Stack App Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Mobile App Design & Development",
+				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
+			}
+		],
+		"description": "Arisan tanpa ribet. Born & Created from Medan, Indonesia."
 	}
 ]
