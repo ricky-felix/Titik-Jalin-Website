@@ -26,7 +26,7 @@
 	{
 		"id": 2,
 		"title": "Arisan Digital",
-		"status": "Working",
+		"status": "In Progress",
 		"statusColor": "text-yellow-600",
 		"image": "./Arisan_Digital_Homepage.webp",
 		"alt": "Arisan Digital website cover",
@@ -46,5 +46,29 @@
 			}
 		],
 		"description": "Arisan tanpa ribet. Born & Created from Medan, Indonesia."
+	},
+	{
+		"id": 3,
+		"title": "The Residence",
+		"status": "In Progress",
+		"statusColor": "text-yellow-600",
+		"image": "./The_Residence_Homepage.webp",
+		"alt": "Arisan Digital website cover",
+		"url": "https://the-residence-premium.vercel.app/",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "UI/UX Design",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "FrontEnd Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			}
+		],
+		"description": "Live Intelligently, Live Exceptionally. Smart Residence pertama di Medan, Indonesia."
 	}
 ]
