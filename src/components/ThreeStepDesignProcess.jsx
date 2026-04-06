@@ -73,27 +73,27 @@ export default function ThreeStepDesignProcess() {
 
 	const steps = [
 		{
-			title: "Market Research",
+			title: "Discovery & Brief",
 			description:
-				"We start by understanding your brand, goals, and target audience through comprehensive research and strategic planning creating a project brief and timeline.",
+				"We kick off with a focused conversation to understand your goals, constraints, and vision — no fluff, just clarity. You'll walk away with a shared project brief and a realistic timeline.",
 			image: "./Market_Research.webp",
 		},
 		{
 			title: "Design Iterations",
 			description:
-				"Our creative team develops innovative solutions that align with your brand identity and user experience requirements. We iterate on the design based on stakeholders feedback and testing.",
+				"We explore visual directions through moodboards and wireframes, then refine based on your feedback. Fast cycles, no guesswork — until the design feels right.",
 			image: "./Digital_Moodboard.webp",
 		},
 		{
-			title: "Implementation & Testing",
+			title: "Build & QA",
 			description:
-				"We execute the final design with precision, ensuring seamless implementation and ongoing support for your project. We test the design to ensure it meets needs and expectations.",
+				"We turn the approved design into clean, performant code — tested across devices and browsers before anything goes live.",
 			image: "./Implementation_&_Testing.webp",
 		},
 		{
-			title: "Project Signoff",
+			title: "Launch & Handoff",
 			description:
-				"We measure results and optimize performance to ensure your design achieves its intended impact, business objectives, and success outcome.",
+				"We ship it, walk you through everything, and hand over all assets and access. You leave with a product you fully own and understand.",
 			image: "./Meeting_Handshake.webp",
 		},
 	];
