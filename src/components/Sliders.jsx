@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import React from "react";
+import React, { useRef } from "react";
 
 // Media query hook
 const useMediaQuery = (query) => {
@@ -18,29 +18,29 @@ const useMediaQuery = (query) => {
 	return matches;
 };
 
-const useRelume = (isMobile) => {
-	const { scrollYProgress } = useScroll();
+export function Sliders() {
+	const isMobile = useMediaQuery("(max-width: 768px)");
+	const containerRef = useRef(null);
 
-	const style = (index) => {
-		const totalItems = 4;
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start start", "end end"],
+	});
 
-		// Shortened scroll calculations for faster animation
-		const sectionSize = isMobile ? 0.15 : 0.12; // Reduced from 0.25/0.18
-		const fadeBuffer = isMobile ? 0.03 : 0.08; // Reduced from 0.05/0.15
+	const totalItems = 4;
+	const sectionSize = 1 / totalItems; // 0.25 each
+	const fadeBuffer = 0.06;
+
+	const makeStyle = (index) => {
 		const start = index * sectionSize;
 		const end = Math.min(start + sectionSize, 1);
-
-		// Ensure proper ranges for all items
-		const fadeIn = Math.min(start + fadeBuffer, end - fadeBuffer);
-		const fadeOut = Math.max(end - fadeBuffer, fadeIn);
-
+		const fadeIn = start + fadeBuffer;
+		const fadeOut = end - fadeBuffer;
 		const inputRange = [start, fadeIn, fadeOut, end];
 
 		const outputOpacity = [0, 1, 1, 0];
-		// Special case for last item to stay visible
-		if (index === totalItems - 1) {
-			outputOpacity[3] = 1;
-		}
+		// Last item stays visible
+		if (index === totalItems - 1) outputOpacity[3] = 1;
 
 		const yValues = isMobile ? [30, 0, 0, -30] : [40, 0, 0, -40];
 
@@ -49,16 +49,21 @@ const useRelume = (isMobile) => {
 			y: useTransform(scrollYProgress, inputRange, yValues),
 		};
 	};
-	return { style };
-};
 
-export function Sliders() {
-	const isMobile = useMediaQuery("(max-width: 768px)");
-	const relume = useRelume(isMobile);
+	// "Keep scrolling" indicator fades out only at the very end
+	const keepScrollingOpacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 0]);
+
+	const style0 = makeStyle(0);
+	const style1 = makeStyle(1);
+	const style2 = makeStyle(2);
+	const style3 = makeStyle(3);
 
 	return (
-		<section className="relative bg-gradient-to-b from-transparent via-neutral-50/30 to-primary-50/20">
-			{/* Scroll container → adjusted to ensure all 4 animations complete */}
+		<section
+			ref={containerRef}
+			className="relative bg-linear-to-b from-transparent via-neutral-50/30 to-primary-50/20"
+		>
+			{/* Scroll container */}
 			<div className={isMobile ? "relative h-[800vh]" : "relative h-[600vh]"}>
 				{/* Sticky viewport */}
 				<div className="sticky top-0 flex min-h-screen items-center justify-center">
@@ -74,7 +79,7 @@ export function Sliders() {
 						<div className="relative min-h-[6rem] sm:min-h-[8rem]">
 							<motion.h2
 								className="absolute left-1/2 -translate-x-1/2 mb-3 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold whitespace-nowrap"
-								style={relume.style(0)}
+								style={style0}
 							>
 								<span className="block text-secondary-500">Business</span>
 								<span className="block text-neutral-800">
@@ -84,32 +89,47 @@ export function Sliders() {
 
 							<motion.h2
 								className="absolute left-1/2 -translate-x-1/2 mb-3 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold whitespace-nowrap"
-								style={relume.style(1)}
+								style={style1}
 							>
 								<span className="text-primary-500">Startup</span>
 							</motion.h2>
 
 							<motion.h2
 								className="absolute left-1/2 -translate-x-1/2 mb-3 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold whitespace-nowrap"
-								style={relume.style(2)}
+								style={style2}
 							>
 								<span className="block bg-gradient-to-r from-accent-600 via-primary-500 to-secondary-600 bg-clip-text text-transparent">
-									Company or Agency
-								</span>
-								<span className="block text-neutral-800">Re-Branding</span>
-							</motion.h2>
-
-							<motion.h2
-								className="absolute left-1/2 -translate-x-1/2 mb-3 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold whitespace-nowrap"
-								style={relume.style(3)}
-							>
-								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
 									Micro or Small
 								</span>
 								<span className="block text-neutral-800">Enterprises</span>
 							</motion.h2>
+
+							<motion.h2
+								className="absolute left-1/2 -translate-x-1/2 mb-3 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold whitespace-nowrap"
+								style={style3}
+							>
+								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
+									Company or Agency
+								</span>
+								<span className="block text-neutral-800">Re-Branding</span>
+							</motion.h2>
 						</div>
 					</div>
+
+					{/* Keep scrolling indicator */}
+					<motion.div
+						className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-400"
+						style={{ opacity: keepScrollingOpacity }}
+					>
+						<span className="text-xs sm:text-sm font-medium tracking-widest uppercase">
+							Keep Scrolling
+						</span>
+						<motion.div
+							className="w-px h-8 bg-neutral-400 origin-top"
+							animate={{ scaleY: [0, 1, 0] }}
+							transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+						/>
+					</motion.div>
 				</div>
 			</div>
 		</section>
