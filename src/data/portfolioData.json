@@ -19,6 +19,10 @@
 			{
 				"name": "Industrial Design",
 				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
+			},
+			{
+				"name": "Shopping Cart",
+				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
 			}
 		],
 		"description": "Tokspace empowers creators in Indonesia with cutting-edge 3D printing technology and modular design kits. Located in Medan, Indonesia."
@@ -43,6 +47,10 @@
 			{
 				"name": "Mobile App Design & Development",
 				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
+			},
+			{
+				"name": "Web App Design & Development",
+				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
 			}
 		],
 		"description": "Arisan tanpa ribet. Born & Created from Medan, Indonesia."
@@ -50,8 +58,8 @@
 	{
 		"id": 3,
 		"title": "The Residence",
-		"status": "In Progress",
-		"statusColor": "text-yellow-600",
+		"status": "Live",
+		"statusColor": "text-green-600",
 		"image": "./The_Residence_Homepage.webp",
 		"alt": "Arisan Digital website cover",
 		"url": "https://the-residence-premium.vercel.app/",
@@ -66,6 +74,10 @@
 			},
 			{
 				"name": "FrontEnd Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Single Page / Landing Page",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			}
 		],
