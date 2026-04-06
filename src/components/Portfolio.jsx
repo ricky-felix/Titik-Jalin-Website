@@ -11,12 +11,12 @@ export function Portfolio() {
 			<div className="container">
 				<div className="mb-12 md:mb-18 lg:mb-20">
 					<div className="mx-auto max-w-lg text-center">
-						<p className="mb-3 font-semibold md:mb-4">Our Work</p>
+						<p className="mb-3 font-semibold md:mb-4">Personal Projects</p>
 						<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
-							Explore Our Portfolio
+							What I've Built
 						</h2>
 						<p className="md:text-md text-slate-600">
-							Transforming ideas into impactful designs.
+							A showcase of personal projects — built to explore ideas, sharpen skills, and bring concepts to life.
 						</p>
 					</div>
 				</div>
