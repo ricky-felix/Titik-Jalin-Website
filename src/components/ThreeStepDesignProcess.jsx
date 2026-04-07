@@ -105,7 +105,6 @@ export default function ThreeStepDesignProcess() {
 	const handleImageError = (index) => {
 		console.error(
 			`Failed to load image for step ${index + 1}: ${steps[index].image}`
-		);
 		setImageLoadStates((prev) => ({ ...prev, [index]: "error" }));
 	};
 

@@ -88,7 +88,7 @@ export function Footer() {
 				<div className="h-px w-full bg-black" />
 				<div className="flex items-center justify-center pt-6 pb-4 text-sm md:pt-8 md:pb-0">
 					<p className="text-center">
-						Titik Jalin, a UI/UX Design Studio. <br />
+						Titik Jalin - Human, Simple, Connected <br />
 						Operating remotely in Indonesia.
 					</p>
 				</div>
