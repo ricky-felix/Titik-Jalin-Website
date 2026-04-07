@@ -30,8 +30,8 @@
 	{
 		"id": 2,
 		"title": "Arisan Digital",
-		"status": "In Progress",
-		"statusColor": "text-yellow-600",
+		"status": "Live",
+		"statusColor": "text-green-600",
 		"image": "./Arisan_Digital_Homepage.webp",
 		"alt": "Arisan Digital website cover",
 		"url": "https://www.arisandigital.com",
