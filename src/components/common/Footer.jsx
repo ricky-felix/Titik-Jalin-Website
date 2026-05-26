@@ -89,7 +89,7 @@ export function Footer() {
 				<div className="flex items-center justify-center pt-6 pb-4 text-sm md:pt-8 md:pb-0">
 					<p className="text-center">
 						Titik Jalin - Human, Simple, Connected <br />
-						Operating remotely in Indonesia.
+						Based in Medan, Indonesia.
 					</p>
 				</div>
 			</div>

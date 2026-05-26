@@ -118,6 +118,21 @@ function Home() {
 				</div>
 			</main>
 
+			{/* Location Section */}
+			<motion.div
+				className="w-full border-t border-black/10 bg-white"
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				transition={{ duration: 0.5 }}
+				viewport={{ once: true }}
+			>
+				<div className="mx-auto max-w-7xl px-[5%] py-10 flex flex-col items-center gap-2 text-center">
+					<p className="text-xs font-semibold uppercase tracking-widest text-black/40">Based In</p>
+					<p className="text-2xl font-bold tracking-tight text-black">Medan, Indonesia</p>
+					<p className="text-sm text-black/50">Working with clients across the archipelago and beyond.</p>
+				</div>
+			</motion.div>
+
 			{/* Footer */}
 			<div className="z-50 bg-white">
 				<Footer />
