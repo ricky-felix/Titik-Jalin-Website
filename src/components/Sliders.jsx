@@ -39,8 +39,8 @@ export function Sliders() {
 		const inputRange = [start, fadeIn, fadeOut, end];
 
 		const outputOpacity = [0, 1, 1, 0];
-		// Last item stays visible
-		if (index === totalItems - 1) outputOpacity[3] = 1;
+		if (index === 0) outputOpacity[0] = 1; // First item visible on load
+		if (index === totalItems - 1) outputOpacity[3] = 1; // Last item stays visible
 
 		const yValues = isMobile ? [30, 0, 0, -30] : [40, 0, 0, -40];
 

@@ -72,10 +72,6 @@ export const CTA = (props) => {
 			<div className="relative z-10 container">
 				<motion.div
 					className="mx-auto mb-12 w-full max-w-4xl text-center md:mb-18 lg:mb-20"
-					initial={{ y: 30 }}
-					whileInView={{ y: 0 }}
-					transition={{ duration: 0.3 }}
-					viewport={{ once: true }}
 				>
 					{/* Decorative line */}
 					<div className="flex items-center justify-center mb-8">
@@ -97,19 +93,11 @@ export const CTA = (props) => {
 
 					<motion.p
 						className="mb-3 font-semibold text-primary-300 tracking-wide md:mb-4"
-						initial={{ y: 20 }}
-						whileInView={{ y: 0 }}
-						transition={{ duration: 0.3 }}
-						viewport={{ once: true }}
 					>
 						{tagline}
 					</motion.p>
 					<motion.h2
 						className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-white"
-						initial={{ y: 30 }}
-						whileInView={{ y: 0 }}
-						transition={{ duration: 0.3 }}
-						viewport={{ once: true }}
 					>
 						<span className="bg-gradient-to-r from-primary-300 via-secondary-300 to-accent-300 bg-clip-text text-black">
 							{heading}
@@ -117,20 +105,12 @@ export const CTA = (props) => {
 					</motion.h2>
 					<motion.p
 						className="md:text-lg text-black"
-						initial={{ y: 20 }}
-						whileInView={{ y: 0 }}
-						transition={{ duration: 0.3 }}
-						viewport={{ once: true }}
 					>
 						{description}
 					</motion.p>
 				</motion.div>
 				<motion.div
 					className="flex flex-col justify-between gap-6 md:flex-row md:gap-8"
-					initial={{ y: 40 }}
-					whileInView={{ y: 0 }}
-					transition={{ duration: 0.3 }}
-					viewport={{ once: true }}
 				>
 					{features.map((feature, index) => (
 						<motion.a
@@ -138,10 +118,6 @@ export const CTA = (props) => {
 							className="group relative flex w-full flex-col overflow-hidden md:w-1/2 lg:h-full lg:transition-all lg:duration-500 lg:hover:w-[70%] lg:hover:scale-[1.02]"
 							onMouseEnter={() => setHoveredFeatureIdx(index)}
 							onMouseLeave={() => setHoveredFeatureIdx(null)}
-							initial={{ y: 30 }}
-							whileInView={{ y: 0 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true }}
 							whileHover={{ y: -8 }}
 						>
 							{/* Image container with enhanced effects */}

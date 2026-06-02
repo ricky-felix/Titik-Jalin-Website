@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 import "../index.css";
 
@@ -25,109 +24,54 @@ function Home() {
 
 			{/* Main Content */}
 			<main id="main-content">
-				{/* Hero Section */}
-				<section>
-					<Header />
-				</section>
+				<Header />
 
-				<div>
-					<Sliders />
-				</div>
+				<Sliders />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col items-center justify-center py-8 lg:py-12 w-full">
-						<motion.section
-							className="relative py-20 md:py-32"
-							initial={{ y: 12 }}
-							whileInView={{ y: 0 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-150px" }}
-						>
+						<section className="relative py-20 md:py-32">
 							<div id="about-us">
 								<CorePrinciples />
 							</div>
-						</motion.section>
+						</section>
 
-						{/* Quote with elegant entrance */}
-						<motion.div
-							className="w-full"
-							initial={{ scale: 0.95 }}
-							whileInView={{ scale: 1 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-100px" }}
-						>
+						<div className="w-full">
 							<Quote />
-						</motion.div>
+						</div>
 
-						{/* Banner Section */}
-						<motion.section
-							className="relative"
-							initial={{ scale: 0.95 }}
-							whileInView={{ scale: 1 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-100px" }}
-						>
+						<section className="relative">
 							<div id="process">
 								<Banner />
 							</div>
-						</motion.section>
+						</section>
 					</div>
 				</div>
 
 				<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col items-center justify-center w-full">
 						<ThreeStepDesignProcess />
-						<motion.section
-							className="relative py-20 md:py-32"
-							initial={{ y: 12 }}
-							whileInView={{ y: 0 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-100px" }}
-						>
-							{/* Portfolio with staggered animation */}
-							<motion.div
-								className="w-full"
-								initial={{ y: 40 }}
-								whileInView={{ y: 0 }}
-								transition={{ duration: 0.3 }}
-								viewport={{ once: true, margin: "-100px" }}
-							>
-								<div id="our-work">
-									<Portfolio />
-								</div>
-							</motion.div>
+						<section className="relative py-20 md:py-32">
+							<div id="our-work">
+								<Portfolio />
+							</div>
 
-							{/* CTA with dynamic entrance */}
-							<motion.div
-								className="w-full"
-								initial={{ y: 50 }}
-								whileInView={{ y: 0 }}
-								transition={{ duration: 0.3 }}
-								viewport={{ once: true, margin: "-100px" }}
-							>
-								<div id="contact-us">
-									<Connect />
-								</div>
-							</motion.div>
-						</motion.section>
+							<div id="contact-us">
+								<Connect />
+							</div>
+						</section>
 					</div>
 				</div>
 			</main>
 
 			{/* Location Section */}
-			<motion.div
-				className="w-full border-t border-black/10 bg-white"
-				initial={{ y: 12 }}
-				whileInView={{ y: 0 }}
-				transition={{ duration: 0.5 }}
-				viewport={{ once: true }}
-			>
+			<div className="w-full border-t border-black/10 bg-white">
 				<div className="mx-auto max-w-7xl px-[5%] py-10 flex flex-col items-center gap-2 text-center">
 					<p className="text-xs font-semibold uppercase tracking-widest text-black/40">Based In</p>
 					<p className="text-2xl font-bold tracking-tight text-black">Medan, Indonesia</p>
 					<p className="text-sm text-black/50">Working with clients across the archipelago and beyond.</p>
 				</div>
-			</motion.div>
+			</div>
 
 			{/* Footer */}
 			<div className="z-50 bg-white">
