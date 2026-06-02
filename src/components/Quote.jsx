@@ -51,8 +51,8 @@ export function Quote() {
 				{/* Question section */}
 				<motion.div
 					className="mb-12 md:mb-16"
-					initial={{ opacity: 0, y: 30 }}
-					whileInView={{ opacity: 1, y: 0 }}
+					initial={{ y: 30 }}
+					whileInView={{ y: 0 }}
 					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
@@ -76,8 +76,8 @@ export function Quote() {
 
 					<motion.p
 						className="text-xl md:text-2xl font-semibold text-neutral-700 tracking-wide"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
+						initial={{ y: 20 }}
+						whileInView={{ y: 0 }}
 						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
@@ -89,8 +89,8 @@ export function Quote() {
 				{/* Main quote section */}
 				<motion.div
 					className="relative"
-					initial={{ opacity: 0, scale: 0.95 }}
-					whileInView={{ opacity: 1, scale: 1 }}
+					initial={{ scale: 0.95 }}
+					whileInView={{ scale: 1 }}
 					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
@@ -99,8 +99,8 @@ export function Quote() {
 					<div className="relative z-10">
 						<motion.div
 							className="text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-bold text-neutral-800 mb-8"
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
+							initial={{ y: 30 }}
+							whileInView={{ y: 0 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 						>
@@ -128,8 +128,8 @@ export function Quote() {
 						<div className="flex items-center justify-center">
 							<motion.div
 								className="flex flex-col items-center justify-center mt-8"
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								initial={{ y: 20 }}
+								whileInView={{ y: 0 }}
 								transition={{ duration: 0.3 }}
 								viewport={{ once: true }}
 							>

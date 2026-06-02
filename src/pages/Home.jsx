@@ -26,13 +26,9 @@ function Home() {
 			{/* Main Content */}
 			<main id="main-content">
 				{/* Hero Section */}
-				<motion.section
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 0.8 }}
-				>
+				<section>
 					<Header />
-				</motion.section>
+				</section>
 
 				<div>
 					<Sliders />
@@ -42,8 +38,8 @@ function Home() {
 					<div className="flex flex-col items-center justify-center py-8 lg:py-12 w-full">
 						<motion.section
 							className="relative py-20 md:py-32"
-							initial={{ opacity: 0 }}
-							whileInView={{ opacity: 1 }}
+							initial={{ y: 12 }}
+							whileInView={{ y: 0 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-150px" }}
 						>
@@ -55,8 +51,8 @@ function Home() {
 						{/* Quote with elegant entrance */}
 						<motion.div
 							className="w-full"
-							initial={{ opacity: 0, scale: 0.95 }}
-							whileInView={{ opacity: 1, scale: 1 }}
+							initial={{ scale: 0.95 }}
+							whileInView={{ scale: 1 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-100px" }}
 						>
@@ -66,8 +62,8 @@ function Home() {
 						{/* Banner Section */}
 						<motion.section
 							className="relative"
-							initial={{ opacity: 0, scale: 0.95 }}
-							whileInView={{ opacity: 1, scale: 1 }}
+							initial={{ scale: 0.95 }}
+							whileInView={{ scale: 1 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-100px" }}
 						>
@@ -83,16 +79,16 @@ function Home() {
 						<ThreeStepDesignProcess />
 						<motion.section
 							className="relative py-20 md:py-32"
-							initial={{ opacity: 0 }}
-							whileInView={{ opacity: 1 }}
+							initial={{ y: 12 }}
+							whileInView={{ y: 0 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true, margin: "-100px" }}
 						>
 							{/* Portfolio with staggered animation */}
 							<motion.div
 								className="w-full"
-								initial={{ opacity: 0, y: 40 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								initial={{ y: 40 }}
+								whileInView={{ y: 0 }}
 								transition={{ duration: 0.3 }}
 								viewport={{ once: true, margin: "-100px" }}
 							>
@@ -104,8 +100,8 @@ function Home() {
 							{/* CTA with dynamic entrance */}
 							<motion.div
 								className="w-full"
-								initial={{ opacity: 0, y: 50 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								initial={{ y: 50 }}
+								whileInView={{ y: 0 }}
 								transition={{ duration: 0.3 }}
 								viewport={{ once: true, margin: "-100px" }}
 							>
@@ -121,8 +117,8 @@ function Home() {
 			{/* Location Section */}
 			<motion.div
 				className="w-full border-t border-black/10 bg-white"
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
+				initial={{ y: 12 }}
+				whileInView={{ y: 0 }}
 				transition={{ duration: 0.5 }}
 				viewport={{ once: true }}
 			>

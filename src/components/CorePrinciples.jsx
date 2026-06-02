@@ -12,8 +12,8 @@ export function CorePrinciples() {
 					{/* Left Column */}
 					<motion.div
 						className="flex h-full flex-col justify-between"
-						initial={{ opacity: 0, x: -50 }}
-						whileInView={{ opacity: 1, x: 0 }}
+						initial={{ x: -50 }}
+						whileInView={{ x: 0 }}
 						transition={{ duration: 0.8 }}
 						viewport={{ once: true, margin: "-100px" }}
 					>
@@ -22,8 +22,8 @@ export function CorePrinciples() {
 							{/* Decorative badge */}
 							<motion.div
 								className="inline-flex items-center gap-2 mb-6"
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								initial={{ y: 20 }}
+								whileInView={{ y: 0 }}
 								transition={{ duration: 0.3 }}
 								viewport={{ once: true }}
 							>
@@ -35,8 +35,8 @@ export function CorePrinciples() {
 
 							<motion.h2
 								className="text-4xl font-bold md:text-5xl lg:text-6xl leading-tight"
-								initial={{ opacity: 0, y: 30 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								initial={{ y: 30 }}
+								whileInView={{ y: 0 }}
 								transition={{ duration: 0.3 }}
 								viewport={{ once: true }}
 							>
@@ -49,8 +49,8 @@ export function CorePrinciples() {
 						{/* Image with enhanced styling */}
 						<motion.div
 							className="relative group"
-							initial={{ opacity: 0, scale: 0.9 }}
-							whileInView={{ opacity: 1, scale: 1 }}
+							initial={{ scale: 0.9 }}
+							whileInView={{ scale: 1 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 							whileHover={{ scale: 1.02 }}
@@ -99,16 +99,16 @@ export function CorePrinciples() {
 					{/* Right Column */}
 					<motion.div
 						className="flex h-full flex-col justify-between"
-						initial={{ opacity: 0, x: 50 }}
-						whileInView={{ opacity: 1, x: 0 }}
+						initial={{ x: 50 }}
+						whileInView={{ x: 0 }}
 						transition={{ duration: 0.3 }}
 						viewport={{ once: true, margin: "-100px" }}
 					>
 						{/* Top Image */}
 						<motion.div
 							className="relative group mb-8 md:mb-12"
-							initial={{ opacity: 0, y: -30 }}
-							whileInView={{ opacity: 1, y: 0 }}
+							initial={{ y: -30 }}
+							whileInView={{ y: 0 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 							whileHover={{ scale: 1.02 }}
@@ -144,8 +144,8 @@ export function CorePrinciples() {
 						{/* Description Card */}
 						<motion.div
 							className="relative"
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
+							initial={{ y: 30 }}
+							whileInView={{ y: 0 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 						>

@@ -72,8 +72,8 @@ export const CTA = (props) => {
 			<div className="relative z-10 container">
 				<motion.div
 					className="mx-auto mb-12 w-full max-w-4xl text-center md:mb-18 lg:mb-20"
-					initial={{ opacity: 0, y: 30 }}
-					whileInView={{ opacity: 1, y: 0 }}
+					initial={{ y: 30 }}
+					whileInView={{ y: 0 }}
 					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
@@ -97,8 +97,8 @@ export const CTA = (props) => {
 
 					<motion.p
 						className="mb-3 font-semibold text-primary-300 tracking-wide md:mb-4"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
+						initial={{ y: 20 }}
+						whileInView={{ y: 0 }}
 						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
@@ -106,8 +106,8 @@ export const CTA = (props) => {
 					</motion.p>
 					<motion.h2
 						className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-white"
-						initial={{ opacity: 0, y: 30 }}
-						whileInView={{ opacity: 1, y: 0 }}
+						initial={{ y: 30 }}
+						whileInView={{ y: 0 }}
 						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
@@ -117,8 +117,8 @@ export const CTA = (props) => {
 					</motion.h2>
 					<motion.p
 						className="md:text-lg text-black"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
+						initial={{ y: 20 }}
+						whileInView={{ y: 0 }}
 						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 					>
@@ -127,8 +127,8 @@ export const CTA = (props) => {
 				</motion.div>
 				<motion.div
 					className="flex flex-col justify-between gap-6 md:flex-row md:gap-8"
-					initial={{ opacity: 0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
+					initial={{ y: 40 }}
+					whileInView={{ y: 0 }}
 					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
 				>
@@ -138,8 +138,8 @@ export const CTA = (props) => {
 							className="group relative flex w-full flex-col overflow-hidden md:w-1/2 lg:h-full lg:transition-all lg:duration-500 lg:hover:w-[70%] lg:hover:scale-[1.02]"
 							onMouseEnter={() => setHoveredFeatureIdx(index)}
 							onMouseLeave={() => setHoveredFeatureIdx(null)}
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
+							initial={{ y: 30 }}
+							whileInView={{ y: 0 }}
 							transition={{ duration: 0.3 }}
 							viewport={{ once: true }}
 							whileHover={{ y: -8 }}
@@ -258,7 +258,7 @@ export const CTA = (props) => {
 											<div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 border border-white/20">
 												<motion.p
 													className="text-neutral-200 leading-relaxed"
-													initial={{ opacity: 0, y: 10 }}
+													initial={{ y: 10 }}
 													animate={{ opacity: 1, y: 0 }}
 													transition={{ delay: 0.1 }}
 												>
@@ -266,7 +266,7 @@ export const CTA = (props) => {
 												</motion.p>
 												<motion.div
 													className="mt-6"
-													initial={{ opacity: 0, y: 10 }}
+													initial={{ y: 10 }}
 													animate={{ opacity: 1, y: 0 }}
 													transition={{ delay: 0.2 }}
 												>
