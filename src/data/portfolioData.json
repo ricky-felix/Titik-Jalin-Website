@@ -78,5 +78,33 @@
 			}
 		],
 		"description": "Live Intelligently, Live Exceptionally. Smart Residence pertama di Medan, Indonesia."
+	},
+	{
+		"id": 4,
+		"title": "CV Karya Agung Sejati (KAS)",
+		"status": "Live (Real Project)",
+		"statusColor": "text-green-600",
+		"image": "./CV_KAS_Homepage.png",
+		"alt": "CV Karya Agung Sejati (KAS) website cover",
+		"url": "https://www.karyagungsejati.com",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "UI/UX Design",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Full Stack App Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Single Page / Landing Page",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			}
+		],
+		"description": "CV Karya Agung Sejati (KAS) is a leading construction company based in Medan, Indonesia, specializing in high-quality construction services and innovative solutions for residential, commercial, and industrial projects."
 	}
 ]
