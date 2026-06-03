@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { fadeUp, viewportOnce, entranceTransition } from "../lib/motion";
 
 const useScroll = () => {
 	const [activeSection, setActiveSection] = useState(0);
@@ -135,7 +137,14 @@ export default function ThreeStepDesignProcess() {
 					<div className="grid grid-cols-1 gap-12 md:block md:gap-0">
 						{steps.map((step, index) => (
 							<div key={index} className="content">
-								<div className="flex flex-col items-start justify-center md:h-screen">
+								<motion.div
+									className="flex flex-col items-start justify-center md:h-screen"
+									variants={fadeUp}
+									initial="hidden"
+									whileInView="visible"
+									viewport={viewportOnce}
+									transition={entranceTransition}
+								>
 									<p className="mb-3 font-semibold md:mb-4">Step {index + 1}</p>
 									<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
 										{step.title}
@@ -156,7 +165,7 @@ export default function ThreeStepDesignProcess() {
 											}}
 										/>
 									</div>
-								</div>
+								</motion.div>
 							</div>
 						))}
 					</div>

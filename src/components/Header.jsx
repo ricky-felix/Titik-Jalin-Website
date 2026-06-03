@@ -34,21 +34,31 @@ export function Header() {
 									transition={{ duration: 0.8, delay: 0.3 }}
 								/>
 
-								<h1 className="text-5xl font-bold md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white">
+								<motion.h1
+									className="text-5xl font-bold md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white"
+									initial={{ opacity: 0, y: 24 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+								>
 									Big ideas start from a single dot grow into greatness
-								</h1>
+								</motion.h1>
 							</div>
 						</div>
 
 						{/* Description Section */}
 						<div className="flex flex-col justify-end">
-							<div className="mx-[7.5%] md:mx-0">
+							<motion.div
+								className="mx-[7.5%] md:mx-0"
+								initial={{ opacity: 0, y: 24 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+							>
 								<p className="text-text-alternative md:text-md text-white">
 									Every great journey begins with a single step. Join us as we
 									transform your vision into reality, creating digital
 									experiences that inspire and connect.
 								</p>
-							</div>
+							</motion.div>
 						</div>
 					</div>
 				</div>

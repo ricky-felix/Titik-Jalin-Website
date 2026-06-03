@@ -4,6 +4,7 @@ import { Button } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { RxChevronRight } from "react-icons/rx";
+import { fadeUp, viewportOnce, entranceTransition } from "../lib/motion";
 
 const slideVariants = {
 	hidden: {
@@ -28,51 +29,22 @@ export const CTA = (props) => {
 
 	return (
 		<section className="relative overflow-hidden px-[5%]">
-			{/* Background decorative elements */}
+			{/* Background decorative elements (static — kept subtle, no motion) */}
 			<div className="absolute inset-0 overflow-hidden pointer-events-none">
-				<motion.div
-					className="absolute top-1/4 -left-40 w-96 h-96 bg-primary-500/15"
-					animate={{
-						scale: [1, 1.4, 1],
-						x: [0, 80, 0],
-						y: [0, -60, 0],
-					}}
-					transition={{
-						duration: 30,
-						repeat: Infinity,
-						ease: "easeInOut",
-					}}
-				/>
-				<motion.div
-					className="absolute bottom-1/3 -right-32 w-80 h-80 bg-secondary-500/12"
-					animate={{
-						scale: [1.3, 1, 1.3],
-						rotate: [0, 180, 360],
-					}}
-					transition={{
-						duration: 25,
-						repeat: Infinity,
-						ease: "linear",
-					}}
-				/>
-				<motion.div
-					className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-500/10"
-					animate={{
-						scale: [1, 1.6, 1],
-						opacity: [0.3, 0.8, 0.3],
-					}}
-					transition={{
-						duration: 20,
-						repeat: Infinity,
-						ease: "easeInOut",
-					}}
-				/>
+				<div className="absolute top-1/4 -left-40 w-96 h-96 bg-primary-500/15" />
+				<div className="absolute bottom-1/3 -right-32 w-80 h-80 bg-secondary-500/12" />
+				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-500/10" />
 			</div>
 
-			<div className="relative z-10 container">
-				<motion.div
-					className="mx-auto mb-12 w-full max-w-4xl text-center md:mb-18 lg:mb-20"
-				>
+			<motion.div
+				className="relative z-10 container"
+				variants={fadeUp}
+				initial="hidden"
+				whileInView="visible"
+				viewport={viewportOnce}
+				transition={entranceTransition}
+			>
+				<div className="mx-auto mb-12 w-full max-w-4xl text-center md:mb-18 lg:mb-20">
 					{/* Decorative line */}
 					<div className="flex items-center justify-center mb-8">
 						<div className="h-px w-20 bg-gradient-to-r from-transparent to-primary-400"></div>
@@ -91,27 +63,17 @@ export const CTA = (props) => {
 						<div className="h-px w-20 bg-gradient-to-l from-transparent to-primary-400"></div>
 					</div>
 
-					<motion.p
-						className="mb-3 font-semibold text-primary-300 tracking-wide md:mb-4"
-					>
+					<p className="mb-3 font-semibold text-primary-300 tracking-wide md:mb-4">
 						{tagline}
-					</motion.p>
-					<motion.h2
-						className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-white"
-					>
+					</p>
+					<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-white">
 						<span className="bg-gradient-to-r from-primary-300 via-secondary-300 to-accent-300 bg-clip-text text-white">
 							{heading}
 						</span>
-					</motion.h2>
-					<motion.p
-						className="md:text-lg text-neutral-200"
-					>
-						{description}
-					</motion.p>
-				</motion.div>
-				<motion.div
-					className="flex flex-col justify-between gap-6 md:flex-row md:gap-8"
-				>
+					</h2>
+					<p className="md:text-lg text-neutral-200">{description}</p>
+				</div>
+				<div className="flex flex-col justify-between gap-6 md:flex-row md:gap-8">
 					{features.map((feature, index) => (
 						<motion.a
 							key={index}
@@ -157,20 +119,10 @@ export const CTA = (props) => {
 										whileHover={{ scale: 1.05 }}
 										transition={{ type: "spring", stiffness: 400, damping: 10 }}
 									>
-										<motion.div
+										<div
 											className={`${
 												index === 0 ? "bg-primary-400" : "bg-secondary-400"
 											}`}
-											animate={{
-												scale: [1, 1.3, 1],
-												opacity: [0.7, 1, 0.7],
-											}}
-											transition={{
-												duration: 2,
-												repeat: Infinity,
-												ease: "easeInOut",
-												delay: 0.3,
-											}}
 										/>
 										{feature.tagline}
 									</motion.div>
@@ -267,8 +219,8 @@ export const CTA = (props) => {
 							</div>
 						</motion.a>
 					))}
-				</motion.div>
-			</div>
+				</div>
+			</motion.div>
 		</section>
 	);
 };

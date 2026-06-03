@@ -1,22 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import React, { useRef } from "react";
-
-// Media query hook
-const useMediaQuery = (query) => {
-	const [matches, setMatches] = React.useState(false);
-
-	React.useEffect(() => {
-		const media = window.matchMedia(query);
-		if (media.matches !== matches) setMatches(media.matches);
-		const listener = () => setMatches(media.matches);
-		media.addEventListener("change", listener);
-		return () => media.removeEventListener("change", listener);
-	}, [matches, query]);
-
-	return matches;
-};
+import { useRef } from "react";
+import { useMediaQuery } from "../lib/useMediaQuery";
 
 export function Sliders() {
 	const isMobile = useMediaQuery("(max-width: 768px)");

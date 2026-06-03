@@ -1,13 +1,20 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
+import { fadeUp, viewportOnce, entranceTransition } from "../lib/motion";
 
 export function Quote() {
 	return (
 		<section id="relume" className="flex justify-center items-center">
 			<div className="relative z-10 max-w-4xl text-center h-screen flex flex-col justify-center items-center">
-				<div className="mb-12 md:mb-16">
+				<motion.div
+					className="mb-12 md:mb-16"
+					variants={fadeUp}
+					initial="hidden"
+					whileInView="visible"
+					viewport={viewportOnce}
+					transition={entranceTransition}
+				>
 					<div className="flex items-center justify-center mb-8">
 						<div className="h-px w-16 bg-gradient-to-r from-transparent to-primary-400"></div>
 						<motion.div
@@ -22,10 +29,17 @@ export function Quote() {
 						What is the meaning of{" "}
 						<span className="font-extrabold">Titik Jalin</span>?
 					</p>
-				</div>
+				</motion.div>
 
 				<div className="relative">
-					<div className="relative z-10">
+					<motion.div
+						className="relative z-10"
+						variants={fadeUp}
+						initial="hidden"
+						whileInView="visible"
+						viewport={viewportOnce}
+						transition={entranceTransition}
+					>
 						<div className="text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-bold text-white mb-8">
 							<span className="italic">"</span>Every great creation begins with
 							a single&nbsp;
@@ -63,7 +77,7 @@ export function Quote() {
 								</div>
 							</div>
 						</div>
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</section>

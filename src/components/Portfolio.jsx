@@ -1,6 +1,13 @@
 "use client";
 
+import { motion } from "framer-motion";
 import portfolioProjects from "../data/portfolioData.json";
+import {
+	fadeUp,
+	staggerContainer,
+	viewportOnce,
+	entranceTransition,
+} from "../lib/motion";
 
 export function Portfolio() {
 	return (
@@ -9,21 +16,48 @@ export function Portfolio() {
 			className="px-[5%] py-16 md:py-24 lg:py-28  min-h-screen"
 		>
 			<div className="container">
-				<div className="mb-12 md:mb-18 lg:mb-20">
+				<motion.div
+					className="mb-12 md:mb-18 lg:mb-20"
+					variants={staggerContainer}
+					initial="hidden"
+					whileInView="visible"
+					viewport={viewportOnce}
+				>
 					<div className="mx-auto max-w-lg text-center">
-						<p className="mb-3 font-semibold md:mb-4">Personal Projects</p>
-						<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+						<motion.p
+							className="mb-3 font-semibold md:mb-4"
+							variants={fadeUp}
+							transition={entranceTransition}
+						>
+							Personal Projects
+						</motion.p>
+						<motion.h2
+							className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl"
+							variants={fadeUp}
+							transition={entranceTransition}
+						>
 							What I've Built
-						</h2>
-						<p className="md:text-md text-slate-300">
+						</motion.h2>
+						<motion.p
+							className="md:text-md text-slate-300"
+							variants={fadeUp}
+							transition={entranceTransition}
+						>
 							A showcase of personal projects — built to explore ideas, sharpen skills, and bring concepts to life.
-						</p>
+						</motion.p>
 					</div>
-				</div>
+				</motion.div>
 
 				<div className="grid grid-cols-1 gap-12 md:gap-16 lg:gap-20">
 					{portfolioProjects.map((project) => (
-						<div key={project.id} className="group relative">
+						<motion.div
+							key={project.id}
+							className="group relative"
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={viewportOnce}
+							transition={entranceTransition}
+						>
 							{/* Glassmorphism Card */}
 							<div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:bg-white/15 hover:border-white/30">
 								{/* Content */}
@@ -120,7 +154,7 @@ export function Portfolio() {
 									</div>
 								</div>
 							</div>
-						</div>
+						</motion.div>
 					))}
 				</div>
 			</div>
