@@ -61,7 +61,7 @@ export function Sliders() {
 	return (
 		<section
 			ref={containerRef}
-			className="relative bg-linear-to-b from-transparent via-neutral-50/30 to-primary-50/20"
+			className="relative"
 		>
 			{/* Scroll container */}
 			<div className={isMobile ? "relative h-[800vh]" : "relative h-[600vh]"}>
@@ -70,7 +70,7 @@ export function Sliders() {
 					<div className="relative text-center max-w-6xl mx-auto px-4 sm:px-8">
 						{/* Header */}
 						<div className="mb-6 sm:mb-12">
-							<p className="text-base sm:text-lg md:text-xl font-semibold text-neutral-700 tracking-wide uppercase">
+							<p className="text-base sm:text-lg md:text-xl font-semibold text-neutral-200 tracking-wide uppercase">
 								Who do we work for?
 							</p>
 						</div>
@@ -82,7 +82,7 @@ export function Sliders() {
 								style={style0}
 							>
 								<span className="block text-secondary-500">Business</span>
-								<span className="block text-neutral-800">
+								<span className="block text-white">
 									Digital Transformation
 								</span>
 							</motion.h2>
@@ -101,7 +101,7 @@ export function Sliders() {
 								<span className="block bg-gradient-to-r from-accent-600 via-primary-500 to-secondary-600 bg-clip-text text-transparent">
 									Micro or Small
 								</span>
-								<span className="block text-neutral-800">Enterprises</span>
+								<span className="block text-white">Enterprises</span>
 							</motion.h2>
 
 							<motion.h2
@@ -111,7 +111,7 @@ export function Sliders() {
 								<span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent">
 									Company or Agency
 								</span>
-								<span className="block text-neutral-800">Re-Branding</span>
+								<span className="block text-white">Re-Branding</span>
 							</motion.h2>
 						</div>
 					</div>

@@ -18,7 +18,7 @@ export function Quote() {
 						<div className="h-px w-16 bg-gradient-to-l from-transparent to-primary-400"></div>
 					</div>
 
-					<p className="text-xl md:text-2xl font-semibold text-neutral-700 tracking-wide">
+					<p className="text-xl md:text-2xl font-semibold text-neutral-200 tracking-wide">
 						What is the meaning of{" "}
 						<span className="font-extrabold">Titik Jalin</span>?
 					</p>
@@ -26,7 +26,7 @@ export function Quote() {
 
 				<div className="relative">
 					<div className="relative z-10">
-						<div className="text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-bold text-neutral-800 mb-8">
+						<div className="text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-bold text-white mb-8">
 							<span className="italic">"</span>Every great creation begins with
 							a single&nbsp;
 							<span className="relative inline-block">

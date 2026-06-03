@@ -18,7 +18,7 @@ export function CorePrinciples() {
 							</div>
 
 							<h2 className="text-4xl font-bold md:text-5xl lg:text-6xl leading-tight">
-								<span className="block text-neutral-800 mb-2">
+								<span className="block text-white mb-2">
 									Our Core Principles That Guide Us
 								</span>
 							</h2>
@@ -78,7 +78,7 @@ export function CorePrinciples() {
 
 						<div className="relative">
 							<div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-secondary-50/20 rounded-2xl"></div>
-							<p className="text-lg leading-relaxed text-neutral-700">
+							<p className="text-lg leading-relaxed text-neutral-200">
 								At Titik Jalin, we believe in being{" "}
 								<strong className="text-primary-600">Human</strong>,{" "}
 								<strong className="text-secondary-600">Simple</strong>, and{" "}

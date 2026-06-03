@@ -15,7 +15,7 @@ export function Portfolio() {
 						<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
 							What I've Built
 						</h2>
-						<p className="md:text-md text-slate-600">
+						<p className="md:text-md text-slate-300">
 							A showcase of personal projects — built to explore ideas, sharpen skills, and bring concepts to life.
 						</p>
 					</div>
@@ -70,7 +70,7 @@ export function Portfolio() {
 									{/* Project Details */}
 									<div className="mt-6 grid grid-cols-1 items-start justify-between gap-6 md:mt-8 md:grid-cols-2 md:gap-12">
 										<div>
-											<h3 className="text-xl font-bold md:text-2xl text-slate-900 mb-4">
+											<h3 className="text-xl font-bold md:text-2xl text-white mb-4">
 												{project.id}. {project.title}{" "}
 												{project.status && (
 													<span className={`${project.statusColor} bold`}>
@@ -82,7 +82,7 @@ export function Portfolio() {
 												{project.tags.map((tag, index) => (
 													<span
 														key={index}
-														className={`px-4 py-2 font-semibold text-sm tracking-wider rounded-full border border-black backdrop-blur-sm ${tag.hoverColor} transition-colors duration-300`}
+														className={`px-4 py-2 font-semibold text-sm tracking-wider rounded-full border border-white/40 backdrop-blur-sm ${tag.hoverColor} transition-colors duration-300`}
 													>
 														{tag.name}
 													</span>
@@ -90,7 +90,7 @@ export function Portfolio() {
 											</div>
 										</div>
 										<div className="backdrop-blur-sm p-6 border border-white/30">
-											<p className="text-slate-700 leading-relaxed">
+											<p className="text-slate-200 leading-relaxed">
 												{project.description}
 											</p>
 

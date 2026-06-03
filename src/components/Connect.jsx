@@ -99,12 +99,12 @@ export const CTA = (props) => {
 					<motion.h2
 						className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-white"
 					>
-						<span className="bg-gradient-to-r from-primary-300 via-secondary-300 to-accent-300 bg-clip-text text-black">
+						<span className="bg-gradient-to-r from-primary-300 via-secondary-300 to-accent-300 bg-clip-text text-white">
 							{heading}
 						</span>
 					</motion.h2>
 					<motion.p
-						className="md:text-lg text-black"
+						className="md:text-lg text-neutral-200"
 					>
 						{description}
 					</motion.p>

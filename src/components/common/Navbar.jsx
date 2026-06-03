@@ -83,6 +83,13 @@ export function Navbar() {
 				{/* Desktop Navigation */}
 				<nav className="hidden lg:flex items-center space-x-4">
 					<button
+						onClick={() => scrollToSection("services")}
+						className="px-3 py-1 text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to Services section"
+					>
+						Services
+					</button>
+					<button
 						onClick={() => scrollToSection("about-us")}
 						className="px-3 py-1 text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
 						aria-label="Navigate to About Us section"
@@ -126,7 +133,7 @@ export function Navbar() {
 					aria-expanded={useActive.animateMobileMenu === "open"}
 				>
 					<motion.span
-						className="my-[2px] h-0.5 w-5 bg-black"
+						className="my-[2px] h-0.5 w-5 bg-white"
 						animate={useActive.animateMobileMenuButtonSpan}
 						variants={{
 							open: { translateY: 6, transition: { delay: 0.1 } },
@@ -139,7 +146,7 @@ export function Navbar() {
 						}}
 					/>
 					<motion.span
-						className="my-[2px] h-0.5 w-5 bg-black"
+						className="my-[2px] h-0.5 w-5 bg-white"
 						animate={useActive.animateMobileMenu}
 						variants={{
 							open: { width: 0, transition: { duration: 0.1 } },
@@ -150,7 +157,7 @@ export function Navbar() {
 						}}
 					/>
 					<motion.span
-						className="my-[2px] h-0.5 w-5 bg-black"
+						className="my-[2px] h-0.5 w-5 bg-white"
 						animate={useActive.animateMobileMenuButtonSpan}
 						variants={{
 							open: { translateY: -6, transition: { delay: 0.1 } },
@@ -178,6 +185,16 @@ export function Navbar() {
 				className="lg:hidden overflow-hidden"
 			>
 				<nav className="px-4 pb-3 space-y-1">
+					<button
+						onClick={() => {
+							scrollToSection("services");
+							useActive.toggleMobileMenu();
+						}}
+						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
+						aria-label="Navigate to Services section"
+					>
+						Services
+					</button>
 					<button
 						onClick={() => {
 							scrollToSection("about-us");

@@ -7,6 +7,7 @@ import Footer from "../components/common/Footer";
 
 import Header from "../components/Header";
 import Sliders from "../components/Sliders";
+import Services from "../components/Services";
 import CorePrinciples from "../components/CorePrinciples";
 import ThreeStepDesignProcess from "../components/ThreeStepDesignProcess";
 import Portfolio from "../components/Portfolio";
@@ -18,7 +19,7 @@ function Home() {
 	return (
 		<>
 			{/* Navigation */}
-			<div className="z-50 sticky top-0 left-0 right-0 bg-white">
+			<div className="z-50 sticky top-0 left-0 right-0 bg-[#21545c]">
 				<Navbar />
 			</div>
 
@@ -27,6 +28,8 @@ function Home() {
 				<Header />
 
 				<Sliders />
+
+				<Services />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col items-center justify-center py-8 lg:py-12 w-full">
@@ -65,16 +68,16 @@ function Home() {
 			</main>
 
 			{/* Location Section */}
-			<div className="w-full border-t border-black/10 bg-white">
+			<div className="w-full border-t border-white/10 bg-[#21545c]">
 				<div className="mx-auto max-w-7xl px-[5%] py-10 flex flex-col items-center gap-2 text-center">
-					<p className="text-xs font-semibold uppercase tracking-widest text-black/40">Based In</p>
-					<p className="text-2xl font-bold tracking-tight text-black">Medan, Indonesia</p>
-					<p className="text-sm text-black/50">Working with clients across the archipelago and beyond.</p>
+					<p className="text-xs font-semibold uppercase tracking-widest text-white/50">Based In</p>
+					<p className="text-2xl font-bold tracking-tight text-white">Medan, Indonesia</p>
+					<p className="text-sm text-white/60">Working with clients across the archipelago and beyond.</p>
 				</div>
 			</div>
 
 			{/* Footer */}
-			<div className="z-50 bg-white">
+			<div className="z-50 bg-[#21545c]">
 				<Footer />
 			</div>
 		</>

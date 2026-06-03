@@ -54,8 +54,8 @@
 	{
 		"id": 3,
 		"title": "The Residence",
-		"status": "Live",
-		"statusColor": "text-green-600",
+		"status": "Mockup",
+		"statusColor": "text-yellow-600",
 		"image": "./The_Residence_Homepage.webp",
 		"alt": "Arisan Digital website cover",
 		"url": "https://the-residence-premium.vercel.app/",
@@ -82,7 +82,7 @@
 	{
 		"id": 4,
 		"title": "CV Karya Agung Sejati (KAS)",
-		"status": "Live (Real Project)",
+		"status": "Live",
 		"statusColor": "text-green-600",
 		"image": "./CV_KAS_Homepage.png",
 		"alt": "CV Karya Agung Sejati (KAS) website cover",
