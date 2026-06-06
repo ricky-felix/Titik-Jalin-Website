@@ -1,23 +1,8 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 import { RxChevronRight } from "react-icons/rx";
-import { fadeUp, viewportOnce, entranceTransition } from "../lib/motion";
-
-const slideVariants = {
-	hidden: {
-		opacity: 0,
-		height: 0,
-		y: 50,
-	},
-	visible: {
-		opacity: 1,
-		height: "auto",
-		y: 0,
-	},
-};
+import { useReveal } from "../lib/useReveal";
 
 export const CTA = (props) => {
 	const { tagline, heading, description, features } = {
@@ -25,7 +10,7 @@ export const CTA = (props) => {
 		...props,
 	};
 
-	const [hoveredFeatureIdx, setHoveredFeatureIdx] = useState(null);
+	const [ref, visible] = useReveal();
 
 	return (
 		<section className="relative overflow-hidden px-[5%]">
@@ -36,30 +21,17 @@ export const CTA = (props) => {
 				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-500/10" />
 			</div>
 
-			<motion.div
-				className="relative z-10 container"
-				variants={fadeUp}
-				initial="hidden"
-				whileInView="visible"
-				viewport={viewportOnce}
-				transition={entranceTransition}
+			<div
+				ref={ref}
+				className={`reveal relative z-10 container ${
+					visible ? "is-visible" : ""
+				}`}
 			>
 				<div className="mx-auto mb-12 w-full max-w-4xl text-center md:mb-18 lg:mb-20">
 					{/* Decorative line */}
 					<div className="flex items-center justify-center mb-8">
 						<div className="h-px w-20 bg-gradient-to-r from-transparent to-primary-400"></div>
-						<motion.div
-							className="mx-4 w-3 h-3 bg-primary-400"
-							animate={{
-								scale: [1, 1.5, 1],
-								opacity: [0.6, 1, 0.6],
-							}}
-							transition={{
-								duration: 3,
-								repeat: Infinity,
-								ease: "easeInOut",
-							}}
-						/>
+						<div className="anim-pulse-dot mx-4 w-3 h-3 bg-primary-400" />
 						<div className="h-px w-20 bg-gradient-to-l from-transparent to-primary-400"></div>
 					</div>
 
@@ -75,12 +47,9 @@ export const CTA = (props) => {
 				</div>
 				<div className="flex flex-col justify-between gap-6 md:flex-row md:gap-8">
 					{features.map((feature, index) => (
-						<motion.a
+						<a
 							key={index}
-							className="group relative flex w-full flex-col overflow-hidden md:w-1/2 lg:h-full lg:transition-all lg:duration-500 lg:hover:w-[70%] lg:hover:scale-[1.02]"
-							onMouseEnter={() => setHoveredFeatureIdx(index)}
-							onMouseLeave={() => setHoveredFeatureIdx(null)}
-							whileHover={{ y: -8 }}
+							className="group relative flex w-full flex-col overflow-hidden md:w-1/2 transition-transform duration-500 hover:-translate-y-2 lg:h-full lg:hover:w-[70%] lg:hover:scale-[1.02]"
 						>
 							{/* Image container with enhanced effects */}
 							<div className="absolute inset-0 flex size-full flex-col items-center justify-center self-start">
@@ -94,11 +63,10 @@ export const CTA = (props) => {
 											: "bg-gradient-to-br from-secondary-500/20 to-accent-500/30"
 									} group-hover:opacity-80`}
 								/>
-								<motion.img
+								<img
 									src={feature.image.src}
 									alt={feature.image.alt}
 									className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
-									whileHover={{ scale: 1.05 }}
 								/>
 							</div>
 
@@ -109,15 +77,13 @@ export const CTA = (props) => {
 								<div className="lg:absolute lg:inset-0 lg:z-0 lg:transition-all lg:duration-500 lg:group-hover:bg-gradient-to-t lg:group-hover:from-black/90 lg:group-hover:via-black/60 lg:group-hover:to-black/20" />
 
 								<div className="relative z-10 text-white ">
-									{/* Animated badge */}
-									<motion.div
-										className={`inline-flex items-center py-2 text-sm font-semibold mb-4 ${
+									{/* Badge */}
+									<div
+										className={`inline-flex items-center py-2 text-sm font-semibold mb-4 transition-transform duration-300 hover:scale-105 ${
 											index === 0
 												? "bg-primary-500/20 text-primary-200 border-primary-400/30"
 												: "bg-secondary-500/20 text-secondary-200 border-secondary-400/30"
 										}`}
-										whileHover={{ scale: 1.05 }}
-										transition={{ type: "spring", stiffness: 400, damping: 10 }}
 									>
 										<div
 											className={`${
@@ -125,15 +91,11 @@ export const CTA = (props) => {
 											}`}
 										/>
 										{feature.tagline}
-									</motion.div>
+									</div>
 
-									<motion.h3
-										className="mb-2 text-2xl leading-[1.4] font-bold md:text-3xl lg:text-4xl text-white"
-										whileHover={{ x: 8 }}
-										transition={{ type: "spring", stiffness: 400, damping: 25 }}
-									>
+									<h3 className="mb-2 text-2xl leading-[1.4] font-bold md:text-3xl lg:text-4xl text-white transition-transform duration-300 hover:translate-x-2">
 										{feature.heading}
-									</motion.h3>
+									</h3>
 
 									{/* Mobile content */}
 									<div className="lg:hidden">
@@ -141,10 +103,7 @@ export const CTA = (props) => {
 											{feature.description}
 										</p>
 										<div className="mt-6 md:mt-8">
-											<motion.div
-												whileHover={{ scale: 1.05 }}
-												whileTap={{ scale: 0.95 }}
-											>
+											<div className="transition-transform duration-200 hover:scale-105 active:scale-95">
 												<Button
 													{...feature.button}
 													className={`border text-white px-8 py-3 shadow-lg font-medium `}
@@ -153,74 +112,37 @@ export const CTA = (props) => {
 														Send us an email
 													</a>
 												</Button>
-											</motion.div>
+											</div>
 										</div>
 									</div>
 								</div>
 
-								{/* Desktop hover content with enhanced animations */}
-								<AnimatePresence>
-									{hoveredFeatureIdx === index && (
-										<motion.div
-											className="z-10 hidden lg:block lg:w-[440px]"
-											variants={{
-												hidden: {
-													opacity: 0,
-													height: 0,
-													y: 30,
-													scale: 0.95,
-												},
-												visible: {
-													opacity: 1,
-													height: "auto",
-													y: 0,
-													scale: 1,
-												},
-											}}
-											initial="hidden"
-											animate="visible"
-											exit="hidden"
-											transition={{ duration: 0.4, ease: "easeOut" }}
-										>
-											{/* Glassmorphism content card */}
-											<div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 border border-white/20">
-												<motion.p
-													className="text-neutral-200 leading-relaxed"
-													initial={{ y: 10 }}
-													animate={{ opacity: 1, y: 0 }}
-													transition={{ delay: 0.1 }}
+								{/* Desktop hover content — revealed on card hover via CSS */}
+								<div className="z-10 hidden lg:block lg:w-[440px] lg:max-h-0 lg:opacity-0 lg:overflow-hidden lg:transition-all lg:duration-500 lg:ease-out lg:group-hover:max-h-[32rem] lg:group-hover:opacity-100">
+									{/* Glassmorphism content card */}
+									<div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 border border-white/20">
+										<p className="text-neutral-200 leading-relaxed">
+											{feature.description}
+										</p>
+										<div className="mt-6">
+											<div className="transition-transform duration-200 hover:scale-105 active:scale-95">
+												<Button
+													{...feature.button}
+													className={`border text-white px-8 py-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium`}
 												>
-													{feature.description}
-												</motion.p>
-												<motion.div
-													className="mt-6"
-													initial={{ y: 10 }}
-													animate={{ opacity: 1, y: 0 }}
-													transition={{ delay: 0.2 }}
-												>
-													<motion.div
-														whileHover={{ scale: 1.05, y: -2 }}
-														whileTap={{ scale: 0.95 }}
-													>
-														<Button
-															{...feature.button}
-															className={`border text-white px-8 py-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium`}
-														>
-															<a href="mailto:titikjalin@outlook.co.id">
-																Send us an email
-															</a>
-														</Button>
-													</motion.div>
-												</motion.div>
+													<a href="mailto:titikjalin@outlook.co.id">
+														Send us an email
+													</a>
+												</Button>
 											</div>
-										</motion.div>
-									)}
-								</AnimatePresence>
+										</div>
+									</div>
+								</div>
 							</div>
-						</motion.a>
+						</a>
 					))}
 				</div>
-			</motion.div>
+			</div>
 		</section>
 	);
 };

@@ -1,160 +1,154 @@
 "use client";
 
-import { motion } from "framer-motion";
 import portfolioProjects from "../data/portfolioData.json";
-import {
-	fadeUp,
-	staggerContainer,
-	viewportOnce,
-	entranceTransition,
-} from "../lib/motion";
+import { useReveal } from "../lib/useReveal";
+
+function ProjectCard({ project }) {
+	const [ref, visible] = useReveal();
+
+	return (
+		<div
+			ref={ref}
+			className={`reveal group relative ${visible ? "is-visible" : ""}`}
+		>
+			{/* Glassmorphism Card */}
+			<div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:bg-white/15 hover:border-white/30">
+				{/* Content */}
+				<div className="relative z-10">
+					{/* Image Container with Animation */}
+					<div className="relative overflow-hidden shadow-lg">
+						<a
+							href={project.url}
+							target="_blank"
+							rel="noreferrer"
+							className="block relative group/image"
+						>
+							{/* External Link Indicator */}
+							<div className="absolute top-4 right-4 z-20 ">
+								<div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+									<svg
+										className="w-5 h-5"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+										/>
+									</svg>
+								</div>
+							</div>
+
+							{/* Hover Overlay */}
+							<div className="absolute inset-0 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
+
+							{/* Image */}
+							<img
+								src={project.image}
+								className="w-full object-cover transform group-hover/image:scale-105 transition-transform duration-500"
+								alt={project.alt}
+							/>
+						</a>
+					</div>
+
+					{/* Project Details */}
+					<div className="mt-6 grid grid-cols-1 items-start justify-between gap-6 md:mt-8 md:grid-cols-2 md:gap-12">
+						<div>
+							<h3 className="text-xl font-bold md:text-2xl text-white mb-4">
+								{project.id}. {project.title}{" "}
+								{project.status && (
+									<span className={`${project.statusColor} bold`}>
+										({project.status})
+									</span>
+								)}
+							</h3>
+							<div className="flex flex-wrap gap-3">
+								{project.tags.map((tag, index) => (
+									<span
+										key={index}
+										className={`px-4 py-2 font-semibold text-sm tracking-wider rounded-full border border-white/40 backdrop-blur-sm ${tag.hoverColor} transition-colors duration-300`}
+									>
+										{tag.name}
+									</span>
+								))}
+							</div>
+						</div>
+						<div className="backdrop-blur-sm p-6 border border-white/30">
+							<p className="text-slate-200 leading-relaxed">
+								{project.description}
+							</p>
+
+							{/* Visit Website Button */}
+							<a
+								href={project.url}
+								target="_blank"
+								rel="noreferrer"
+								className="inline-flex items-center mt-4 px-4 py-2 font-medium border transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+							>
+								Visit Website
+								<svg
+									className="ml-2 w-4 h-4"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
 
 export function Portfolio() {
+	const [headerRef, headerVisible] = useReveal();
+
 	return (
 		<section
 			id="relume"
 			className="px-[5%] py-16 md:py-24 lg:py-28  min-h-screen"
 		>
 			<div className="container">
-				<motion.div
-					className="mb-12 md:mb-18 lg:mb-20"
-					variants={staggerContainer}
-					initial="hidden"
-					whileInView="visible"
-					viewport={viewportOnce}
+				<div
+					ref={headerRef}
+					className={`mb-12 md:mb-18 lg:mb-20 ${headerVisible ? "is-visible" : ""}`}
 				>
 					<div className="mx-auto max-w-lg text-center">
-						<motion.p
-							className="mb-3 font-semibold md:mb-4"
-							variants={fadeUp}
-							transition={entranceTransition}
+						<p
+							className="reveal-child mb-3 font-semibold md:mb-4"
+							style={{ animationDelay: "0s" }}
 						>
 							Personal Projects
-						</motion.p>
-						<motion.h2
-							className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl"
-							variants={fadeUp}
-							transition={entranceTransition}
+						</p>
+						<h2
+							className="reveal-child mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl"
+							style={{ animationDelay: "0.08s" }}
 						>
 							What I've Built
-						</motion.h2>
-						<motion.p
-							className="md:text-md text-slate-300"
-							variants={fadeUp}
-							transition={entranceTransition}
+						</h2>
+						<p
+							className="reveal-child md:text-md text-slate-300"
+							style={{ animationDelay: "0.16s" }}
 						>
 							A showcase of personal projects — built to explore ideas, sharpen skills, and bring concepts to life.
-						</motion.p>
+						</p>
 					</div>
-				</motion.div>
+				</div>
 
 				<div className="grid grid-cols-1 gap-12 md:gap-16 lg:gap-20">
 					{portfolioProjects.map((project) => (
-						<motion.div
-							key={project.id}
-							className="group relative"
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={viewportOnce}
-							transition={entranceTransition}
-						>
-							{/* Glassmorphism Card */}
-							<div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:bg-white/15 hover:border-white/30">
-								{/* Content */}
-								<div className="relative z-10">
-									{/* Image Container with Animation */}
-									<div className="relative overflow-hidden shadow-lg">
-										<a
-											href={project.url}
-											target="_blank"
-											rel="noreferrer"
-											className="block relative group/image"
-										>
-											{/* External Link Indicator */}
-											<div className="absolute top-4 right-4 z-20 ">
-												<div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
-													<svg
-														className="w-5 h-5"
-														fill="none"
-														stroke="currentColor"
-														viewBox="0 0 24 24"
-													>
-														<path
-															strokeLinecap="round"
-															strokeLinejoin="round"
-															strokeWidth={2}
-															d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-														/>
-													</svg>
-												</div>
-											</div>
-
-											{/* Hover Overlay */}
-											<div className="absolute inset-0 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
-
-											{/* Image */}
-											<img
-												src={project.image}
-												className="w-full object-cover transform group-hover/image:scale-105 transition-transform duration-500"
-												alt={project.alt}
-											/>
-										</a>
-									</div>
-
-									{/* Project Details */}
-									<div className="mt-6 grid grid-cols-1 items-start justify-between gap-6 md:mt-8 md:grid-cols-2 md:gap-12">
-										<div>
-											<h3 className="text-xl font-bold md:text-2xl text-white mb-4">
-												{project.id}. {project.title}{" "}
-												{project.status && (
-													<span className={`${project.statusColor} bold`}>
-														({project.status})
-													</span>
-												)}
-											</h3>
-											<div className="flex flex-wrap gap-3">
-												{project.tags.map((tag, index) => (
-													<span
-														key={index}
-														className={`px-4 py-2 font-semibold text-sm tracking-wider rounded-full border border-white/40 backdrop-blur-sm ${tag.hoverColor} transition-colors duration-300`}
-													>
-														{tag.name}
-													</span>
-												))}
-											</div>
-										</div>
-										<div className="backdrop-blur-sm p-6 border border-white/30">
-											<p className="text-slate-200 leading-relaxed">
-												{project.description}
-											</p>
-
-											{/* Visit Website Button */}
-											<a
-												href={project.url}
-												target="_blank"
-												rel="noreferrer"
-												className="inline-flex items-center mt-4 px-4 py-2 font-medium border transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-											>
-												Visit Website
-												<svg
-													className="ml-2 w-4 h-4"
-													fill="none"
-													stroke="currentColor"
-													viewBox="0 0 24 24"
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														strokeWidth={2}
-														d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-													/>
-												</svg>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</motion.div>
+						<ProjectCard key={project.id} project={project} />
 					))}
 				</div>
 			</div>

@@ -1,9 +1,16 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { useMediaQuery } from "../lib/useMediaQuery";
+
+const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+
+// Map `v` from an input range to an output range, clamped to the input bounds.
+const mapRange = (v, inMin, inMax, outMin, outMax) => {
+	const t = clamp((v - inMin) / (inMax - inMin), 0, 1);
+	return outMin + t * (outMax - outMin);
+};
 
 export const Banner = (props) => {
 	const { headings } = {
@@ -12,40 +19,53 @@ export const Banner = (props) => {
 	};
 
 	const sectionRef = useRef(null);
+	const headingRefs = useRef([]);
 	const isMobile = useMediaQuery("(max-width: 768px)");
 
-	const { scrollYProgress } = useScroll({
-		target: sectionRef,
-		offset: ["start end", "end start"],
-	});
+	// Scroll-linked horizontal parallax. This is scroll-*scrubbed* (tied to scroll
+	// position, not time), so it can't be a CSS keyframe animation — a rAF-throttled
+	// scroll handler writing `transform` is the framer-motion-free equivalent of the
+	// old useScroll/useTransform setup.
+	useEffect(() => {
+		const section = sectionRef.current;
+		if (!section) return;
 
-	// Very conservative transforms that stay within viewport
-	// Use pixels instead of vw/percentage for better control
+		let frame = null;
 
-	const mobileTransformOne = useTransform(
-		scrollYProgress,
-		[0.2, 0.8],
-		[-50, 50]
-	);
-	const mobileTransformTwo = useTransform(
-		scrollYProgress,
-		[0.2, 0.8],
-		[50, -50]
-	);
+		const update = () => {
+			frame = null;
+			const rect = section.getBoundingClientRect();
+			const vh = window.innerHeight;
+			// 0 as the section enters from the bottom → 1 as it leaves past the top.
+			const progress = clamp((vh - rect.top) / (vh + rect.height), 0, 1);
 
-	const desktopTransformOne = useTransform(
-		scrollYProgress,
-		[0.3, 0.7],
-		[-100, 100]
-	);
-	const desktopTransformTwo = useTransform(
-		scrollYProgress,
-		[0.3, 0.7],
-		[100, -100]
-	);
+			const inStart = isMobile ? 0.2 : 0.3;
+			const inEnd = isMobile ? 0.8 : 0.7;
+			const range = isMobile ? 50 : 100;
 
-	const xPartOne = isMobile ? mobileTransformOne : desktopTransformOne;
-	const xPartTwo = isMobile ? mobileTransformTwo : desktopTransformTwo;
+			headingRefs.current.forEach((el, index) => {
+				if (!el) return;
+				const even = index % 2 === 0;
+				const from = even ? -range : range;
+				const to = even ? range : -range;
+				const x = mapRange(progress, inStart, inEnd, from, to);
+				el.style.transform = `translateX(${x}px)`;
+			});
+		};
+
+		const onScroll = () => {
+			if (frame === null) frame = requestAnimationFrame(update);
+		};
+
+		update();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		window.addEventListener("resize", onScroll);
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+			window.removeEventListener("resize", onScroll);
+			if (frame !== null) cancelAnimationFrame(frame);
+		};
+	}, [isMobile]);
 
 	return (
 		<section
@@ -66,14 +86,12 @@ export const Banner = (props) => {
 							"text-left": index % 2 === 0,
 						})}
 					>
-						<motion.h1
-							style={{
-								x: index % 2 === 0 ? xPartOne : xPartTwo,
-							}}
+						<h1
+							ref={(el) => (headingRefs.current[index] = el)}
 							className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight whitespace-nowrap inline-block"
 						>
 							{heading}
-						</motion.h1>
+						</h1>
 					</div>
 				))}
 			</div>

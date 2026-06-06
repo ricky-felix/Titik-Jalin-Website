@@ -140,6 +140,131 @@
 	}
 }
 
+/* Looping pulse for the small decorative dots (scale + opacity) */
+@keyframes pulseDot {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 0.6;
+	}
+	50% {
+		transform: scale(1.4);
+		opacity: 1;
+	}
+}
+
+/* Opacity-only pulse (e.g. scroll-indicator inner bar) */
+@keyframes pulseSoft {
+	0%,
+	100% {
+		opacity: 0.4;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+/* Gentle vertical bob for the scroll indicator */
+@keyframes bounceSoft {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(8px);
+	}
+}
+
+/* One-shot zoom used by the hero background image */
+@keyframes zoomOut {
+	0% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* One-shot horizontal reveal for underlines / accent bars (origin must be left) */
+@keyframes growX {
+	0% {
+		transform: scaleX(0);
+	}
+	100% {
+		transform: scaleX(1);
+	}
+}
+
+/* Looping vertical wipe for the "keep scrolling" bar (origin set on the element) */
+@keyframes scaleYPulse {
+	0%,
+	100% {
+		transform: scaleY(0);
+	}
+	50% {
+		transform: scaleY(1);
+	}
+}
+
+/*
+ * Animation helpers (CSS replacements for framer-motion).
+ *
+ * Scroll-reveal: elements start hidden and animate in once the IntersectionObserver
+ * in `useReveal` adds `is-visible` to the element (or an ancestor, for staggered
+ * groups). Keeping the initial hidden state in the stylesheet — applied before first
+ * paint — is what avoids the entrance "blink".
+ */
+.reveal,
+.reveal-child {
+	opacity: 0;
+}
+.reveal.is-visible,
+.is-visible .reveal-child {
+	animation: slideUp 0.6s ease-out forwards;
+}
+
+.reveal-fade,
+.reveal-fade-child {
+	opacity: 0;
+}
+.reveal-fade.is-visible,
+.is-visible .reveal-fade-child {
+	animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* On-load entrances for above-the-fold content (no observer needed).
+   `both` fill keeps them hidden during any animation-delay. */
+.anim-load-up {
+	opacity: 0;
+	animation: slideUp 0.6s ease-out both;
+}
+.anim-zoom-out {
+	animation: zoomOut 1.2s ease-out both;
+}
+.anim-load-scale {
+	opacity: 0;
+	animation: scaleIn 0.6s ease-out both;
+}
+.anim-grow-x {
+	transform: scaleX(0);
+	transform-origin: left;
+	animation: growX 0.8s ease-out forwards;
+}
+
+/* Loops */
+.anim-pulse-dot {
+	animation: pulseDot 3s ease-in-out infinite;
+}
+.anim-pulse-soft {
+	animation: pulseSoft 2s ease-in-out infinite;
+}
+.anim-bounce-soft {
+	animation: bounceSoft 2s ease-in-out infinite;
+}
+.anim-scaley {
+	animation: scaleYPulse 1.4s ease-in-out infinite;
+}
+
 /* native CSS */
 
 html,

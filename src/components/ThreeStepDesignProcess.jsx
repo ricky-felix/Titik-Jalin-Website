@@ -1,6 +1,39 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { fadeUp, viewportOnce, entranceTransition } from "../lib/motion";
+import { useReveal } from "../lib/useReveal";
+
+function StepContent({ step, index }) {
+	const [ref, visible] = useReveal();
+
+	return (
+		<div
+			ref={ref}
+			className={`reveal flex flex-col items-start justify-center md:h-screen ${
+				visible ? "is-visible" : ""
+			}`}
+		>
+			<p className="mb-3 font-semibold md:mb-4">Step {index + 1}</p>
+			<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+				{step.title}
+			</h2>
+			<p className="md:text-md max-w-lg">{step.description}</p>
+
+			{/* Mobile Image */}
+			<div className="mt-10 w-full md:hidden lg:hidden">
+				<img
+					src={step.image}
+					className="w-full aspect-[4/3] object-cover"
+					alt={`${step.title} step illustration`}
+					loading="lazy"
+					onError={(e) => {
+						e.target.style.display = "none";
+						const placeholder = e.target.nextElementSibling;
+						if (placeholder) placeholder.style.display = "flex";
+					}}
+				/>
+			</div>
+		</div>
+	);
+}
 
 const useScroll = () => {
 	const [activeSection, setActiveSection] = useState(0);
@@ -137,35 +170,7 @@ export default function ThreeStepDesignProcess() {
 					<div className="grid grid-cols-1 gap-12 md:block md:gap-0">
 						{steps.map((step, index) => (
 							<div key={index} className="content">
-								<motion.div
-									className="flex flex-col items-start justify-center md:h-screen"
-									variants={fadeUp}
-									initial="hidden"
-									whileInView="visible"
-									viewport={viewportOnce}
-									transition={entranceTransition}
-								>
-									<p className="mb-3 font-semibold md:mb-4">Step {index + 1}</p>
-									<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
-										{step.title}
-									</h2>
-									<p className="md:text-md max-w-lg">{step.description}</p>
-
-									{/* Mobile Image */}
-									<div className="mt-10 w-full md:hidden lg:hidden">
-										<img
-											src={step.image}
-											className="w-full aspect-[4/3] object-cover"
-											alt={`${step.title} step illustration`}
-											loading="lazy"
-											onError={(e) => {
-												e.target.style.display = "none";
-												const placeholder = e.target.nextElementSibling;
-												if (placeholder) placeholder.style.display = "flex";
-											}}
-										/>
-									</div>
-								</motion.div>
+								<StepContent step={step} index={index} />
 							</div>
 						))}
 					</div>

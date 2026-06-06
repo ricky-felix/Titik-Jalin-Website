@@ -33,6 +33,9 @@ export default [
     },
     rules: {
       "react/react-in-jsx-scope": "off",
+      // Mark identifiers referenced in JSX (components, icon vars) as "used".
+      // Without this, no-unused-vars false-positives on every <Component/>.
+      "react/jsx-uses-vars": "error",
       "no-unused-vars": ["error", {
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^(React|motion|Button|Link|AnimatePresence|Badge|RxChevronRight|slideVariants|BiLogoInstagram|BiLogoLinkedinSquare|Routes|Route|Home|NotFound404|StrictMode|BrowserRouter|App|Navbar|Footer|Header|Sliders|CorePrinciples|ThreeStepDesignProcess|Portfolio|Quote|Connect|Banner|PageNotFound|activeSection|imageLoadStates)$"

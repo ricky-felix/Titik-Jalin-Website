@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { BiCodeAlt, BiPalette, BiLayout, BiSupport } from "react-icons/bi";
-import { fadeUp, viewportOnce, entranceTransition } from "../lib/motion";
+import { useReveal } from "../lib/useReveal";
 
 const services = [
 	{
@@ -32,26 +31,22 @@ const services = [
 ];
 
 export function Services() {
+	const [ref, visible] = useReveal();
+
 	return (
 		<section id="services" className="relative px-[5%] py-16 md:py-24 lg:py-28">
-			<motion.div
-				className="container mx-auto max-w-7xl"
-				variants={fadeUp}
-				initial="hidden"
-				whileInView="visible"
-				viewport={viewportOnce}
-				transition={entranceTransition}
+			<div
+				ref={ref}
+				className={`reveal container mx-auto max-w-7xl ${
+					visible ? "is-visible" : ""
+				}`}
 			>
 				{/* Header */}
 				<div className="mx-auto mb-12 max-w-2xl text-center md:mb-16 lg:mb-20">
 					<div className="flex items-center justify-center mb-6">
 						<div className="h-px w-16 bg-gradient-to-r from-transparent to-primary-400" />
 						{/* The only continuously running animation in this section */}
-						<motion.div
-							className="mx-4 w-3 h-3 bg-primary-400 rounded-full"
-							animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-							transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-						/>
+						<div className="anim-pulse-dot mx-4 w-3 h-3 bg-primary-400 rounded-full" />
 						<div className="h-px w-16 bg-gradient-to-l from-transparent to-primary-400" />
 					</div>
 					<p className="mb-3 font-semibold text-primary-300 tracking-wide uppercase md:mb-4">
@@ -71,10 +66,9 @@ export function Services() {
 					{services.map((service, index) => {
 						const Icon = service.icon;
 						return (
-							<motion.div
+							<div
 								key={index}
-								className="group relative h-full backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl transition-all duration-500 hover:bg-white/15 hover:border-white/30"
-								whileHover={{ y: -8 }}
+								className="group relative h-full backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/15 hover:border-white/30"
 							>
 								<div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-400/30 to-accent-400/20 border border-white/20">
 									<Icon className="w-7 h-7 text-primary-200" />
@@ -85,11 +79,11 @@ export function Services() {
 								<p className="text-neutral-200 leading-relaxed">
 									{service.description}
 								</p>
-							</motion.div>
+							</div>
 						);
 					})}
 				</div>
-			</motion.div>
+			</div>
 		</section>
 	);
 }

@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
-import { motion } from "framer-motion";
+import { Button } from "@relume_io/relume-ui";
 import { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
@@ -19,24 +18,7 @@ const scrollToSection = (sectionId) => {
 
 const useRelume = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-	const isMobile = useMediaQuery("(max-width: 991px)");
 	const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-	const openOnMobileDropdownMenu = () => {
-		setIsDropdownOpen((prev) => !prev);
-	};
-	const openOnDesktopDropdownMenu = () => {
-		!isMobile && setIsDropdownOpen(true);
-	};
-	const closeOnDesktopDropdownMenu = () => {
-		!isMobile && setIsDropdownOpen(false);
-	};
-	const animateMobileMenu = isMobileMenuOpen ? "open" : "close";
-	const animateMobileMenuButtonSpan = isMobileMenuOpen
-		? ["open", "rotatePhase"]
-		: "closed";
-	const animateDropdownMenu = isDropdownOpen ? "open" : "close";
-	const animateDropdownMenuIcon = isDropdownOpen ? "rotated" : "initial";
 
 	// Close mobile menu on Escape key
 	useEffect(() => {
@@ -50,19 +32,14 @@ const useRelume = () => {
 	}, [isMobileMenuOpen]);
 
 	return {
+		isMobileMenuOpen,
 		toggleMobileMenu,
-		openOnDesktopDropdownMenu,
-		closeOnDesktopDropdownMenu,
-		openOnMobileDropdownMenu,
-		animateMobileMenu,
-		animateMobileMenuButtonSpan,
-		animateDropdownMenu,
-		animateDropdownMenuIcon,
 	};
 };
 
 export function Navbar() {
-	const useActive = useRelume();
+	const { isMobileMenuOpen, toggleMobileMenu } = useRelume();
+
 	return (
 		<section
 			id="relume"
@@ -128,67 +105,39 @@ export function Navbar() {
 				{/* Mobile Hamburger Menu */}
 				<button
 					className="flex lg:hidden size-10 flex-col items-center justify-center flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded"
-					onClick={useActive.toggleMobileMenu}
+					onClick={toggleMobileMenu}
 					aria-label="Toggle mobile menu"
-					aria-expanded={useActive.animateMobileMenu === "open"}
+					aria-expanded={isMobileMenuOpen}
 				>
-					<motion.span
-						className="my-[2px] h-0.5 w-5 bg-white"
-						animate={useActive.animateMobileMenuButtonSpan}
-						variants={{
-							open: { translateY: 6, transition: { delay: 0.1 } },
-							rotatePhase: { rotate: -45, transition: { delay: 0.2 } },
-							closed: {
-								translateY: 0,
-								rotate: 0,
-								transition: { duration: 0.2 },
-							},
-						}}
+					<span
+						className={`my-[2px] h-0.5 w-5 bg-white transition-all duration-300 ${
+							isMobileMenuOpen ? "translate-y-[6px] rotate-[-45deg]" : ""
+						}`}
 					/>
-					<motion.span
-						className="my-[2px] h-0.5 w-5 bg-white"
-						animate={useActive.animateMobileMenu}
-						variants={{
-							open: { width: 0, transition: { duration: 0.1 } },
-							closed: {
-								width: "1.25rem",
-								transition: { delay: 0.3, duration: 0.2 },
-							},
-						}}
+					<span
+						className={`my-[2px] h-0.5 w-5 bg-white transition-all duration-300 ${
+							isMobileMenuOpen ? "w-0 opacity-0" : ""
+						}`}
 					/>
-					<motion.span
-						className="my-[2px] h-0.5 w-5 bg-white"
-						animate={useActive.animateMobileMenuButtonSpan}
-						variants={{
-							open: { translateY: -6, transition: { delay: 0.1 } },
-							rotatePhase: { rotate: 45, transition: { delay: 0.2 } },
-							closed: {
-								translateY: 0,
-								rotate: 0,
-								transition: { duration: 0.2 },
-							},
-						}}
+					<span
+						className={`my-[2px] h-0.5 w-5 bg-white transition-all duration-300 ${
+							isMobileMenuOpen ? "-translate-y-[6px] rotate-[45deg]" : ""
+						}`}
 					/>
 				</button>
 			</div>
 
 			{/* Mobile Menu */}
-			<motion.div
-				variants={{
-					open: { height: "auto", opacity: 1 },
-					close: { height: 0, opacity: 0 },
-				}}
-				animate={useActive.animateMobileMenu}
-				initial="close"
-				exit="close"
-				transition={{ duration: 0.4 }}
-				className="lg:hidden overflow-hidden"
+			<div
+				className={`lg:hidden overflow-hidden transition-all duration-400 ${
+					isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+				}`}
 			>
 				<nav className="px-4 pb-3 space-y-1">
 					<button
 						onClick={() => {
 							scrollToSection("services");
-							useActive.toggleMobileMenu();
+							toggleMobileMenu();
 						}}
 						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
 						aria-label="Navigate to Services section"
@@ -198,7 +147,7 @@ export function Navbar() {
 					<button
 						onClick={() => {
 							scrollToSection("about-us");
-							useActive.toggleMobileMenu();
+							toggleMobileMenu();
 						}}
 						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
 						aria-label="Navigate to About Us section"
@@ -208,7 +157,7 @@ export function Navbar() {
 					<button
 						onClick={() => {
 							scrollToSection("process");
-							useActive.toggleMobileMenu();
+							toggleMobileMenu();
 						}}
 						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
 						aria-label="Navigate to Our Process section"
@@ -218,7 +167,7 @@ export function Navbar() {
 					<button
 						onClick={() => {
 							scrollToSection("our-work");
-							useActive.toggleMobileMenu();
+							toggleMobileMenu();
 						}}
 						className="block w-full py-2.5 text-left text-sm hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded transition-colors duration-200 cursor-pointer"
 						aria-label="Navigate to Our Work section"
@@ -231,7 +180,7 @@ export function Navbar() {
 							title="Contact Us"
 							onClick={() => {
 								scrollToSection("contact-us");
-								useActive.toggleMobileMenu();
+								toggleMobileMenu();
 							}}
 							aria-label="Navigate to Contact Us section"
 						>
@@ -239,7 +188,7 @@ export function Navbar() {
 						</Button>
 					</div>
 				</nav>
-			</motion.div>
+			</div>
 		</section>
 	);
 }
