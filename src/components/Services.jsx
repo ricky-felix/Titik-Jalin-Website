@@ -1,6 +1,6 @@
 "use client";
 
-import { BiCodeAlt, BiPalette, BiLayout, BiSupport } from "react-icons/bi";
+import { BiCodeAlt, BiPalette, BiLayer, BiSupport } from "react-icons/bi";
 import { useReveal } from "../lib/useReveal";
 
 const services = [
@@ -8,19 +8,19 @@ const services = [
 		icon: BiPalette,
 		title: "Branding & Identity",
 		description:
-			"Logos, visual systems, and brand guidelines that give your business a clear, memorable, and consistent voice.",
+			"Logo, color system, typography, and brand voice — everything you need to show up consistently and professionally from day one.",
 	},
 	{
-		icon: BiLayout,
-		title: "UI/UX Design",
+		icon: BiLayer,
+		title: "Rapid Prototyping",
 		description:
-			"Wireframes, prototypes, and user flows shaped through fast iteration — interfaces that feel effortless to use.",
+			"Interactive prototypes that let you test your idea with real users before committing to a full build. Validate fast, build with confidence.",
 	},
 	{
 		icon: BiCodeAlt,
-		title: "Web Design, Development, & Testing",
+		title: "Web Design, Development & Testing",
 		description:
-			"From design to component-based React builds with semantic, WCAG-accessible markup — then tuned for Core Web Vitals and tested across browsers and devices before launch.",
+			"From user flows and wireframes to component-based React builds — designed, developed, and tested end-to-end. WCAG-accessible, Core Web Vitals optimised, and cross-browser ready before launch.",
 	},
 	{
 		icon: BiSupport,

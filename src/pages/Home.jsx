@@ -8,6 +8,7 @@ import Footer from "../components/common/Footer";
 import Header from "../components/Header";
 import Sliders from "../components/Sliders";
 import Services from "../components/Services";
+import Pricing from "../components/Pricing";
 import CorePrinciples from "../components/CorePrinciples";
 import ThreeStepDesignProcess from "../components/ThreeStepDesignProcess";
 import Portfolio from "../components/Portfolio";
@@ -30,6 +31,8 @@ function Home() {
 				<Sliders />
 
 				<Services />
+
+				<Pricing />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col items-center justify-center py-8 lg:py-12 w-full">
