@@ -14,7 +14,7 @@ const scrollToSection = (sectionId) => {
 const tiers = [
 	{
 		name: "Sprint Package",
-		price: "From Rp 3.000.000",
+		price: "From IDR Rp 8.000.000 – 10.000.000",
 		tagline: "One deliverable. One week.",
 		bestFor: "Landing page, brand identity, or rapid prototype (single page)",
 		cta: "Get started",
@@ -22,7 +22,7 @@ const tiers = [
 	},
 	{
 		name: "Build Package",
-		price: "From Rp 8.000.000",
+		price: "From IDR Rp 18.000.000 – 35.000.000",
 		tagline: "Full product, shipped fast.",
 		bestFor: "Website, web app, or rapid prototype (multiple pages)",
 		cta: "Get started",
@@ -30,7 +30,7 @@ const tiers = [
 	},
 	{
 		name: "Embedded Package",
-		price: "Custom pricing",
+		price: "Custom Pricing – staring from Rp 15.000.000/month",
 		tagline: "Ongoing product partner.",
 		bestFor: "Monthly retainer, priority access, unlimited scope",
 		cta: "Let's talk",
