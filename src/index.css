@@ -272,8 +272,8 @@ body {
 	margin: 0 !important;
 	padding: 0 !important;
 	/* overflow-x: hidden !important; */
-	background-color: #21545c;
-	color: #e8f0ef;
+	background-color: #062320;
+	color: #ecf4f1;
 }
 
 * {
@@ -316,25 +316,285 @@ body {
 	}
 }
 
+/*
+ * Brand type system (Titik Jalin rebrand):
+ *   Newsreader      — editorial display serif for headings
+ *   Hanken Grotesk  — UI / body
+ *   JetBrains Mono  — technical labels (applied per-element, inline)
+ *
+ * No `!important` here on purpose — the rebrand sets `font-family` inline on
+ * individual elements (e.g. mono labels), and those inline declarations must
+ * be able to win over these defaults.
+ */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	/* color: #1c1f2a !important; */
-	font-family: "Bricolage Grotesque", "Work Sans", sans-serif !important;
-	font-style: normal !important;
-	font-optical-sizing: auto !important;
+	font-family: "Newsreader", Georgia, serif;
+	font-optical-sizing: auto;
 }
 
+body,
 p,
 li,
 ul,
 ol,
 a {
-	/* color: #1c1f2a !important; */
-	font-family: "IBM Plex Mono", "Work Sans", sans-serif !important;
-	font-optical-sizing: auto !important;
-	font-style: normal !important;
+	font-family: "Hanken Grotesk", system-ui, sans-serif;
+	font-optical-sizing: auto;
+}
+
+/* =====================================================================
+   Titik Jalin rebrand — design tokens + motion
+   Scoped to the `.tj` wrapper so the rest of the app is untouched.
+   All GSAP motion from the original design is reproduced here in CSS.
+   ===================================================================== */
+.tj {
+	--bg: #062320;
+	--bg-2: #0a2c27;
+	--surface: #0e332d;
+	--surface-2: #12392f99;
+	--text: #ecf4f1;
+	--text-2: #a3bab3;
+	--text-3: #6a857d;
+	--border: rgba(255, 255, 255, 0.1);
+	--border-2: rgba(255, 255, 255, 0.17);
+	--blue: #66b3ff;
+	--blue-600: #0284c7;
+	--blue-700: #0369a1;
+	--coral: #ff6b6b;
+	--coral-600: #dc2626;
+	--green: #a7f3d0;
+	--green-600: #16a34a;
+	--accent: #ff6b6b;
+	--nav-bg: rgba(6, 35, 32, 0.72);
+	--blob-o: 0.5;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--stripe-a: #103730;
+	--stripe-b: #0b2c27;
+
+	background: var(--bg);
+	color: var(--text);
+	font-family: "Hanken Grotesk", system-ui, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+.tj ::selection {
+	background: var(--coral);
+	color: #fff;
+}
+
+/* Small decorative "open for projects" status dot */
+@keyframes tj-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.5);
+		opacity: 0.4;
+	}
+}
+.tj-pulse {
+	animation: tj-pulse 2.4s ease-in-out infinite;
+}
+
+/* Ambient floating gradient blobs (replaces GSAP random x/y/scale loop).
+   Each blob gets a different duration/delay via inline style for variety. */
+@keyframes tj-blob {
+	0% {
+		transform: translate(0, 0) scale(1);
+	}
+	25% {
+		transform: translate(40px, -30px) scale(1.12);
+	}
+	50% {
+		transform: translate(-30px, 25px) scale(0.94);
+	}
+	75% {
+		transform: translate(25px, 35px) scale(1.08);
+	}
+	100% {
+		transform: translate(0, 0) scale(1);
+	}
+}
+.tj-blob {
+	animation: tj-blob 11s ease-in-out infinite;
+	will-change: transform;
+}
+
+/* Hero entrance: staggered load-in (replaces GSAP gsap.from stagger).
+   `both` fill keeps elements hidden through their animation-delay. */
+@keyframes tj-hero-in {
+	0% {
+		opacity: 0;
+		transform: translateY(34px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.tj-hero {
+	opacity: 0;
+	animation: tj-hero-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Section reveal on scroll (uses the existing useReveal IntersectionObserver).
+   Hidden until `.is-visible` is toggled on the element (or an ancestor). */
+.tj-reveal {
+	opacity: 0;
+}
+.tj-reveal.is-visible {
+	animation: tj-hero-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Staggered group children — each child fades up in sequence once the
+   container becomes visible. Delay is set inline per child. */
+.tj-stagger-child {
+	opacity: 0;
+}
+.is-visible > .tj-stagger-child,
+.is-visible .tj-stagger-child {
+	animation: tj-hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Scroll-aware nav (data-scrolled toggled by a vanilla scroll listener) */
+.tj-nav {
+	transition:
+		background 0.35s ease,
+		border-color 0.35s ease,
+		backdrop-filter 0.35s ease,
+		padding 0.35s ease;
+	border-bottom: 1px solid transparent;
+}
+.tj-nav[data-scrolled="1"] {
+	background: var(--nav-bg);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border-bottom: 1px solid var(--border);
+}
+
+/* Engagement (How we work) cards — hover lift + top accent bar + arrow nudge
+   (replaces the GSAP cardEnter/cardLeave timelines). */
+.tj-tier {
+	transition:
+		transform 0.35s ease,
+		border-color 0.35s ease,
+		box-shadow 0.35s ease;
+}
+.tj-tier:hover {
+	transform: translateY(-6px);
+	border-color: var(--border-2);
+	box-shadow: 0 24px 50px -28px var(--shadow);
+}
+.tj-card-bar {
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tj-tier:hover .tj-card-bar {
+	transform: scaleX(1);
+}
+.tj-card-arrow {
+	display: inline-block;
+	transition: transform 0.3s ease;
+}
+.tj-tier:hover .tj-card-arrow {
+	transform: translateX(6px);
+}
+
+/* Editorial services list rows — slide right + surface tint on hover */
+.tj-svc-row {
+	transition:
+		padding-left 0.3s ease,
+		background 0.3s ease;
+}
+.tj-svc-row:hover {
+	padding-left: 18px;
+	background: var(--surface);
+}
+
+/* Work cards (portfolio) — lift on hover */
+.tj-work {
+	transition:
+		transform 0.35s ease,
+		border-color 0.35s ease;
+}
+.tj-work:hover {
+	transform: translateY(-5px);
+	border-color: var(--border-2);
+}
+.tj-work img {
+	transition: transform 0.5s ease;
+}
+.tj-work:hover img {
+	transform: scale(1.05);
+}
+
+/* Generic link hover used across nav / footer / CTA */
+.tj-link {
+	transition:
+		color 0.2s ease,
+		filter 0.2s ease,
+		background 0.2s ease,
+		transform 0.2s ease;
+}
+.tj-link-muted:hover {
+	color: var(--text);
+}
+.tj-btn-accent:hover {
+	filter: brightness(1.08);
+	transform: translateY(-2px);
+}
+.tj-btn-ghost:hover {
+	background: var(--surface);
+}
+
+/* BRANDT process step — subtle surface tint on hover */
+.tj-step:hover {
+	background: var(--surface-2);
+}
+
+/* ---------------------------------------------------------------------
+   Responsive — the design is built for wide screens; collapse the bento
+   and multi-column grids on smaller viewports. Forcing the containers to
+   `flex-column` (with !important) neatly overrides each child's inline
+   grid-column / grid-row placement so cells stack in source order.
+   --------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	.tj-tier-grid {
+		grid-template-columns: 1fr 1fr !important;
+	}
+	.tj-brandt-grid {
+		grid-template-columns: repeat(3, 1fr) !important;
+	}
+	.tj-bento,
+	.tj-ethos-grid,
+	.tj-work-grid {
+		display: flex !important;
+		flex-direction: column !important;
+	}
+	.tj-bento > *,
+	.tj-ethos-grid > * {
+		min-height: 200px;
+	}
+}
+
+@media (max-width: 640px) {
+	.tj-nav-link {
+		display: none !important;
+	}
+	.tj-tier-grid {
+		grid-template-columns: 1fr !important;
+	}
+	.tj-brandt-grid,
+	.tj-stats-grid {
+		grid-template-columns: 1fr 1fr !important;
+	}
 }

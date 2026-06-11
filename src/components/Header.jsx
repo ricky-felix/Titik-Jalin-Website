@@ -44,7 +44,10 @@ export function Header() {
 								<p className="text-text-alternative md:text-md text-white">
 									Every great journey begins with a single step. Join us as we
 									transform your vision into reality, creating digital
-									experiences that inspire and connect.
+									experiences that inspire and connect. Titik Jalin is an
+									AI-augmented product studio. We weave design, engineering, and
+									AI into one nimble team — from a first sprint to an embedded
+									partner.
 								</p>
 							</div>
 						</div>
