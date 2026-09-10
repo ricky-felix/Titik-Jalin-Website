@@ -1,128 +1,38 @@
-import React from "react";
-import { motion } from "framer-motion";
-
 import "../index.css";
 
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
-
+import Nav from "../components/rebrand/Nav";
+import Hero from "../components/rebrand/Hero";
 import Header from "../components/Header";
-import Sliders from "../components/Sliders";
-import CorePrinciples from "../components/CorePrinciples";
-import ThreeStepDesignProcess from "../components/ThreeStepDesignProcess";
-import Portfolio from "../components/Portfolio";
-import Quote from "../components/Quote";
-import Connect from "../components/Connect";
-import Banner from "../components/Banner";
+
+import Meaning from "../components/rebrand/Meaning";
+import Audience from "../components/rebrand/Audience";
+import Ethos from "../components/rebrand/Ethos";
+import Services from "../components/rebrand/Services";
+import Engagements from "../components/rebrand/Engagements";
+import Brandt from "../components/rebrand/Brandt";
+import Work from "../components/rebrand/Work";
+import Stats from "../components/rebrand/Stats";
+import Contact from "../components/rebrand/Contact";
+import SiteFooter from "../components/rebrand/SiteFooter";
 
 function Home() {
 	return (
-		<>
-			{/* Navigation */}
-			<div className="z-50 sticky top-0 left-0 right-0 bg-white">
-				<Navbar />
-			</div>
-
-			{/* Main Content */}
+		<div className="tj" data-theme="dark">
+			<Nav />
 			<main id="main-content">
-				{/* Hero Section */}
-				<motion.section
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 0.8 }}
-				>
-					<Header />
-				</motion.section>
-
-				<div>
-					<Sliders />
-				</div>
-
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex flex-col items-center justify-center py-8 lg:py-12 w-full">
-						<motion.section
-							className="relative py-20 md:py-32"
-							initial={{ opacity: 0 }}
-							whileInView={{ opacity: 1 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-150px" }}
-						>
-							<div id="about-us">
-								<CorePrinciples />
-							</div>
-						</motion.section>
-
-						{/* Quote with elegant entrance */}
-						<motion.div
-							className="w-full"
-							initial={{ opacity: 0, scale: 0.95 }}
-							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-100px" }}
-						>
-							<Quote />
-						</motion.div>
-
-						{/* Banner Section */}
-						<motion.section
-							className="relative"
-							initial={{ opacity: 0, scale: 0.95 }}
-							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-100px" }}
-						>
-							<div id="process">
-								<Banner />
-							</div>
-						</motion.section>
-					</div>
-				</div>
-
-				<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex flex-col items-center justify-center w-full">
-						<ThreeStepDesignProcess />
-						<motion.section
-							className="relative py-20 md:py-32"
-							initial={{ opacity: 0 }}
-							whileInView={{ opacity: 1 }}
-							transition={{ duration: 0.3 }}
-							viewport={{ once: true, margin: "-100px" }}
-						>
-							{/* Portfolio with staggered animation */}
-							<motion.div
-								className="w-full"
-								initial={{ opacity: 0, y: 40 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.3 }}
-								viewport={{ once: true, margin: "-100px" }}
-							>
-								<div id="our-work">
-									<Portfolio />
-								</div>
-							</motion.div>
-
-							{/* CTA with dynamic entrance */}
-							<motion.div
-								className="w-full"
-								initial={{ opacity: 0, y: 50 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.3 }}
-								viewport={{ once: true, margin: "-100px" }}
-							>
-								<div id="contact-us">
-									<Connect />
-								</div>
-							</motion.div>
-						</motion.section>
-					</div>
-				</div>
+				<Header />
+				<Meaning />
+				<Audience />
+				<Ethos />
+				<Services />
+				<Brandt />
+				<Work />
+				<Engagements />
+				<Stats />
+				<Contact />
 			</main>
-
-			{/* Footer */}
-			<div className="z-50 bg-white">
-				<Footer />
-			</div>
-		</>
+			<SiteFooter />
+		</div>
 	);
 }
 

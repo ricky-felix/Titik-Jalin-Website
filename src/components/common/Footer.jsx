@@ -85,11 +85,11 @@ export function Footer() {
 						</a>
 					</div>
 				</div>
-				<div className="h-px w-full bg-black" />
+				<div className="h-px w-full bg-white/20" />
 				<div className="flex items-center justify-center pt-6 pb-4 text-sm md:pt-8 md:pb-0">
 					<p className="text-center">
-						Titik Jalin, a UI/UX Design Studio. <br />
-						Operating remotely in Indonesia.
+						Titik Jalin - Human, Simple, Connected <br />
+						Operating Remotely
 					</p>
 				</div>
 			</div>

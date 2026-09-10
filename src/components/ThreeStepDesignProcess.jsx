@@ -1,4 +1,39 @@
 import { useEffect, useState } from "react";
+import { useReveal } from "../lib/useReveal";
+
+function StepContent({ step, index }) {
+	const [ref, visible] = useReveal();
+
+	return (
+		<div
+			ref={ref}
+			className={`reveal flex flex-col items-start justify-center md:h-screen ${
+				visible ? "is-visible" : ""
+			}`}
+		>
+			<p className="mb-3 font-semibold md:mb-4">Step {index + 1}</p>
+			<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+				{step.title}
+			</h2>
+			<p className="md:text-md max-w-lg">{step.description}</p>
+
+			{/* Mobile Image */}
+			<div className="mt-10 w-full md:hidden lg:hidden">
+				<img
+					src={step.image}
+					className="w-full aspect-[4/3] object-cover"
+					alt={`${step.title} step illustration`}
+					loading="lazy"
+					onError={(e) => {
+						e.target.style.display = "none";
+						const placeholder = e.target.nextElementSibling;
+						if (placeholder) placeholder.style.display = "flex";
+					}}
+				/>
+			</div>
+		</div>
+	);
+}
 
 const useScroll = () => {
 	const [activeSection, setActiveSection] = useState(0);
@@ -73,27 +108,27 @@ export default function ThreeStepDesignProcess() {
 
 	const steps = [
 		{
-			title: "Market Research",
+			title: "Discovery & Brief",
 			description:
-				"We start by understanding your brand, goals, and target audience through comprehensive research and strategic planning creating a project brief and timeline.",
+				"We kick off with a focused conversation to understand your goals, constraints, and vision — no fluff, just clarity. You'll walk away with a shared project brief and a realistic timeline.",
 			image: "./Market_Research.webp",
 		},
 		{
 			title: "Design Iterations",
 			description:
-				"Our creative team develops innovative solutions that align with your brand identity and user experience requirements. We iterate on the design based on stakeholders feedback and testing.",
+				"We explore visual directions through moodboards and wireframes, then refine based on your feedback. Fast cycles, no guesswork — until the design feels right.",
 			image: "./Digital_Moodboard.webp",
 		},
 		{
-			title: "Implementation & Testing",
+			title: "Build & QA",
 			description:
-				"We execute the final design with precision, ensuring seamless implementation and ongoing support for your project. We test the design to ensure it meets needs and expectations.",
+				"We turn the approved design into clean, performant code — tested across devices and browsers before anything goes live.",
 			image: "./Implementation_&_Testing.webp",
 		},
 		{
-			title: "Project Signoff",
+			title: "Launch & Handoff",
 			description:
-				"We measure results and optimize performance to ensure your design achieves its intended impact, business objectives, and success outcome.",
+				"We ship it, walk you through everything, and hand over all assets and access. You leave with a product you fully own and understand.",
 			image: "./Meeting_Handshake.webp",
 		},
 	];
@@ -135,28 +170,7 @@ export default function ThreeStepDesignProcess() {
 					<div className="grid grid-cols-1 gap-12 md:block md:gap-0">
 						{steps.map((step, index) => (
 							<div key={index} className="content">
-								<div className="flex flex-col items-start justify-center md:h-screen">
-									<p className="mb-3 font-semibold md:mb-4">Step {index + 1}</p>
-									<h2 className="mb-5 md:mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
-										{step.title}
-									</h2>
-									<p className="md:text-md max-w-lg">{step.description}</p>
-
-									{/* Mobile Image */}
-									<div className="mt-10 w-full md:hidden lg:hidden">
-										<img
-											src={step.image}
-											className="w-full aspect-[4/3] object-cover"
-											alt={`${step.title} step illustration`}
-											loading="lazy"
-											onError={(e) => {
-												e.target.style.display = "none";
-												const placeholder = e.target.nextElementSibling;
-												if (placeholder) placeholder.style.display = "flex";
-											}}
-										/>
-									</div>
-								</div>
+								<StepContent step={step} index={index} />
 							</div>
 						))}
 					</div>
