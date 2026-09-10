@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"title": "Tokspace",
-		"status": "Live",
+		"status": "Completed (Concept)",
 		"statusColor": "text-green-600",
 		"image": "./Tokspace_Homepage.webp",
 		"alt": "Tokspace website cover",
@@ -25,12 +25,12 @@
 	},
 	{
 		"id": 2,
-		"title": "Arisan Digital",
-		"status": "Working",
+		"title": "Arisan Digital (Payflex or Hyro.id)",
+		"status": "In Progress",
 		"statusColor": "text-yellow-600",
-		"image": "./Arisan_Digital_Homepage.webp",
-		"alt": "Arisan Digital website cover",
-		"url": "https://www.arisandigital.com",
+		"image": "./Hyro.png",
+		"alt": "Hyro.id website cover",
+		"url": "https://www.hyro.id/",
 		"tags": [
 			{
 				"name": "Branding Identity",
@@ -45,6 +45,78 @@
 				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
 			}
 		],
-		"description": "Arisan tanpa ribet. Born & Created from Medan, Indonesia."
+		"description": "Arisan & Patungan dalam satu webapp. Arisan transparan. Patungan tanpa ribet."
+	},
+	{
+		"id": 3,
+		"title": "The Residence",
+		"status": "In Progress",
+		"statusColor": "text-yellow-600",
+		"image": "./The_Residence_Homepage.webp",
+		"alt": "The Residence website cover",
+		"url": "https://the-residence-premium.vercel.app/",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "UI/UX Design",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "FrontEnd Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			}
+		],
+		"description": "Live Intelligently, Live Exceptionally. Smart Residence pertama di Medan, Indonesia."
+	},
+	{
+		"id": 5,
+		"title": "Mansyur Residence",
+		"status": "LIVE (Concept)",
+		"statusColor": "text-green-600",
+		"image": "./Mansyur-Residence-Medan.png",
+		"alt": "Mansyur Residence Website cover",
+		"url": "https://mansyurresidence.vercel.app/",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "UI/UX Design",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "FrontEnd Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			}
+		],
+		"description": "Apartemen pintar pertama di Medan yang menggabungkan teknologi canggih dengan desain modern. Hidup dengan cara yang belum pernah ada sebelumnya."
+	},
+	{
+		"id": 5,
+		"title": "CV Karya Agung Sejati (KAS)",
+		"status": "LIVE",
+		"statusColor": "text-green-600",
+		"image": "./CVKAS-Homepage.png",
+		"alt": "CV Karya Agung Sejati (KAS) Website cover",
+		"url": "https://kas-website-loveable.vercel.app/",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "UI/UX Design",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "FrontEnd Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			}
+		],
+		"description": "CV Karya Agung Sejati adalah perusahaan waterproofing yang berbasis di Medan, bekerja di antara perusahaan Indonesia lainnya. Membran, pelapis, injeksi — dispesifikasi, dipasang, dijamin."
 	}
 ]
