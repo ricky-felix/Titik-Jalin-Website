@@ -60,9 +60,7 @@ function ProjectCard({ project }) {
 							<h3 className="text-xl font-bold md:text-2xl text-white mb-4">
 								{project.id}. {project.title}{" "}
 								{project.status && (
-									<span className={`${project.statusColor} bold`}>
-										({project.status})
-									</span>
+									<span className="bold">({project.status})</span>
 								)}
 							</h3>
 							<div className="flex flex-wrap gap-3">
@@ -141,7 +139,8 @@ export function Portfolio() {
 							className="reveal-child md:text-md text-slate-300"
 							style={{ animationDelay: "0.16s" }}
 						>
-							A showcase of personal projects — built to explore ideas, sharpen skills, and bring concepts to life.
+							A showcase of personal projects — built to explore ideas, sharpen
+							skills, and bring concepts to life.
 						</p>
 					</div>
 				</div>
