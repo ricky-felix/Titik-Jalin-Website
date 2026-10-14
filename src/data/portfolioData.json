@@ -143,6 +143,38 @@
 			{
 				"name": "FullStack App Development",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Financial Technology (FinTech)",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			}
+		],
+		"description": "More coming soon..."
+	},
+	{
+		"id": 6,
+		"title": "AKU",
+		"status": "In Progress",
+		"statusColor": "text-orange-600",
+		"image": "./AKU-Homepage.png",
+		"alt": "AKU Website cover",
+		"url": "https://netorbit.app/",
+		"tags": [
+			{
+				"name": "Branding Identity",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
+			},
+			{
+				"name": "UI/UX Design",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "FullStack App Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Artificial Intelligence",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			}
 		],
 		"description": "More coming soon..."
