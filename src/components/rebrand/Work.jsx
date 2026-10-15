@@ -174,6 +174,18 @@ export function Work() {
 										>
 											{project.title}
 										</h3>
+										{project.description ? (
+											<p
+												style={{
+													fontSize: 14.5,
+													lineHeight: 1.55,
+													color: "var(--text-2)",
+													margin: "10px 0 0",
+												}}
+											>
+												{project.description}
+											</p>
+										) : null}
 										<div
 											style={{
 												display: "flex",

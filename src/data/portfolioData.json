@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"title": "Tokspace",
-		"status": "Completed (Concept)",
+		"status": "Live (Concept)",
 		"statusColor": "text-green-600",
 		"image": "./Tokspace_Homepage.webp",
 		"alt": "Tokspace website cover",
@@ -158,7 +158,7 @@
 		"statusColor": "text-orange-600",
 		"image": "./AKU-Homepage.jpg",
 		"alt": "AKU Website cover",
-		"url": "https://netorbit.app/",
+		"url": "https://www.findaku.com/",
 		"tags": [
 			{
 				"name": "Branding Identity",
