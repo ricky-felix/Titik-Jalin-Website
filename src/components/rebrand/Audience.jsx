@@ -13,8 +13,8 @@ const ghost = {
 };
 
 export function Audience() {
-	const [headRef, headVisible] = useReveal();
-	const [gridRef, gridVisible] = useReveal();
+	const [headRef] = useReveal();
+	const [gridRef] = useReveal();
 
 	return (
 		<section
@@ -27,11 +27,7 @@ export function Audience() {
 			}}
 		>
 			<div style={{ maxWidth: 1180, margin: "0 auto" }}>
-				<div
-					ref={headRef}
-					className={`tj-reveal ${headVisible ? "is-visible" : ""}`}
-					style={{ marginBottom: 44 }}
-				>
+				<div ref={headRef} className="tj-reveal" style={{ marginBottom: 44 }}>
 					<div
 						style={{
 							fontFamily: MONO,
@@ -61,7 +57,7 @@ export function Audience() {
 
 				<div
 					ref={gridRef}
-					className={`tj-bento ${gridVisible ? "is-visible" : ""}`}
+					className="tj-bento"
 					style={{
 						display: "grid",
 						gridTemplateColumns: "repeat(3,1fr)",
@@ -84,7 +80,6 @@ export function Audience() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
-							animationDelay: "0s",
 						}}
 					>
 						<div
@@ -152,7 +147,6 @@ export function Audience() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
-							animationDelay: "0.11s",
 						}}
 					>
 						<div
@@ -217,7 +211,6 @@ export function Audience() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
-							animationDelay: "0.22s",
 						}}
 					>
 						<div
@@ -283,7 +276,6 @@ export function Audience() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
-							animationDelay: "0.33s",
 						}}
 					>
 						<div

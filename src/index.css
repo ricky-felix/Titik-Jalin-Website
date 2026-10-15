@@ -46,15 +46,6 @@
 	--color-neutral-800: #1f2937;
 	--color-neutral-900: #1f5460;
 
-	/* Animations */
-	--animate-fade-in: fadeIn 0.6s ease-out;
-	--animate-slide-up: slideUp 0.8s ease-out;
-	--animate-slide-in-left: slideInLeft 0.8s ease-out;
-	--animate-slide-in-right: slideInRight 0.8s ease-out;
-	--animate-scale-in: scaleIn 0.6s ease-out;
-	--animate-float: float 3s ease-in-out infinite;
-	--animate-glow: glow 2s ease-in-out infinite alternate;
-
 	/* Box Shadows */
 	--shadow-modern:
 		0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -67,202 +58,22 @@
 	--blur-xs: 2px;
 }
 
-/* Keyframes */
-@keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes slideUp {
-	0% {
-		transform: translateY(30px);
-		opacity: 0;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 1;
-	}
-}
-
-@keyframes slideInLeft {
-	0% {
-		transform: translateX(-30px);
-		opacity: 0;
-	}
-	100% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-}
-
-@keyframes slideInRight {
-	0% {
-		transform: translateX(30px);
-		opacity: 0;
-	}
-	100% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-}
-
-@keyframes scaleIn {
-	0% {
-		transform: scale(0.9);
-		opacity: 0;
-	}
-	100% {
-		transform: scale(1);
-		opacity: 1;
-	}
-}
-
-@keyframes float {
-	0%,
-	100% {
-		transform: translateY(0px);
-	}
-	50% {
-		transform: translateY(-10px);
-	}
-}
-
-@keyframes glow {
-	0% {
-		box-shadow: 0 0 20px rgba(102, 179, 255, 0.3);
-	}
-	100% {
-		box-shadow: 0 0 30px rgba(102, 179, 255, 0.6);
-	}
-}
-
-/* Looping pulse for the small decorative dots (scale + opacity) */
-@keyframes pulseDot {
-	0%,
-	100% {
-		transform: scale(1);
-		opacity: 0.6;
-	}
-	50% {
-		transform: scale(1.4);
-		opacity: 1;
-	}
-}
-
-/* Opacity-only pulse (e.g. scroll-indicator inner bar) */
-@keyframes pulseSoft {
-	0%,
-	100% {
-		opacity: 0.4;
-	}
-	50% {
-		opacity: 1;
-	}
-}
-
-/* Gentle vertical bob for the scroll indicator */
-@keyframes bounceSoft {
-	0%,
-	100% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(8px);
-	}
-}
-
-/* One-shot zoom used by the hero background image */
-@keyframes zoomOut {
-	0% {
-		transform: scale(1.05);
-	}
-	100% {
-		transform: scale(1);
-	}
-}
-
-/* One-shot horizontal reveal for underlines / accent bars (origin must be left) */
-@keyframes growX {
-	0% {
-		transform: scaleX(0);
-	}
-	100% {
-		transform: scaleX(1);
-	}
-}
-
-/* Looping vertical wipe for the "keep scrolling" bar (origin set on the element) */
-@keyframes scaleYPulse {
-	0%,
-	100% {
-		transform: scaleY(0);
-	}
-	50% {
-		transform: scaleY(1);
-	}
-}
-
 /*
- * Animation helpers (CSS replacements for framer-motion).
- *
- * Scroll-reveal: elements start hidden and animate in once the IntersectionObserver
- * in `useReveal` adds `is-visible` to the element (or an ancestor, for staggered
- * groups). Keeping the initial hidden state in the stylesheet — applied before first
- * paint — is what avoids the entrance "blink".
+ * Motion is driven by GSAP (see src/lib/gsap.js, useReveal, useCountUp).
+ * These rules only set the *initial* hidden state, applied before first
+ * paint, so nothing flashes before GSAP animates it in (the mobile "blink").
  */
 .reveal,
-.reveal-child {
-	opacity: 0;
-}
-.reveal.is-visible,
-.is-visible .reveal-child {
-	animation: slideUp 0.6s ease-out forwards;
-}
-
+.reveal-child,
 .reveal-fade,
-.reveal-fade-child {
-	opacity: 0;
-}
-.reveal-fade.is-visible,
-.is-visible .reveal-fade-child {
-	animation: fadeIn 0.6s ease-out forwards;
-}
-
-/* On-load entrances for above-the-fold content (no observer needed).
-   `both` fill keeps them hidden during any animation-delay. */
-.anim-load-up {
-	opacity: 0;
-	animation: slideUp 0.6s ease-out both;
-}
-.anim-zoom-out {
-	animation: zoomOut 1.2s ease-out both;
-}
+.reveal-fade-child,
+.anim-load-up,
 .anim-load-scale {
 	opacity: 0;
-	animation: scaleIn 0.6s ease-out both;
 }
 .anim-grow-x {
 	transform: scaleX(0);
 	transform-origin: left;
-	animation: growX 0.8s ease-out forwards;
-}
-
-/* Loops */
-.anim-pulse-dot {
-	animation: pulseDot 3s ease-in-out infinite;
-}
-.anim-pulse-soft {
-	animation: pulseSoft 2s ease-in-out infinite;
-}
-.anim-bounce-soft {
-	animation: bounceSoft 2s ease-in-out infinite;
-}
-.anim-scaley {
-	animation: scaleYPulse 1.4s ease-in-out infinite;
 }
 
 /* native CSS */
@@ -349,7 +160,7 @@ a {
 /* =====================================================================
    Titik Jalin rebrand — design tokens + motion
    Scoped to the `.tj` wrapper so the rest of the app is untouched.
-   All GSAP motion from the original design is reproduced here in CSS.
+   Motion lives in GSAP; this file holds tokens, hover states and layout.
    ===================================================================== */
 .tj {
 	--bg: #062320;
@@ -388,83 +199,17 @@ a {
 	color: #fff;
 }
 
-/* Small decorative "open for projects" status dot */
-@keyframes tj-pulse {
-	0%,
-	100% {
-		transform: scale(1);
-		opacity: 1;
-	}
-	50% {
-		transform: scale(1.5);
-		opacity: 0.4;
-	}
-}
-.tj-pulse {
-	animation: tj-pulse 2.4s ease-in-out infinite;
-}
-
-/* Ambient floating gradient blobs (replaces GSAP random x/y/scale loop).
-   Each blob gets a different duration/delay via inline style for variety. */
-@keyframes tj-blob {
-	0% {
-		transform: translate(0, 0) scale(1);
-	}
-	25% {
-		transform: translate(40px, -30px) scale(1.12);
-	}
-	50% {
-		transform: translate(-30px, 25px) scale(0.94);
-	}
-	75% {
-		transform: translate(25px, 35px) scale(1.08);
-	}
-	100% {
-		transform: translate(0, 0) scale(1);
-	}
-}
-.tj-blob {
-	animation: tj-blob 11s ease-in-out infinite;
-	will-change: transform;
-}
-
-/* Hero entrance: staggered load-in (replaces GSAP gsap.from stagger).
-   `both` fill keeps elements hidden through their animation-delay. */
-@keyframes tj-hero-in {
-	0% {
-		opacity: 0;
-		transform: translateY(34px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-.tj-hero {
-	opacity: 0;
-	animation: tj-hero-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* Section reveal on scroll (uses the existing useReveal IntersectionObserver).
-   Hidden until `.is-visible` is toggled on the element (or an ancestor). */
-.tj-reveal {
-	opacity: 0;
-}
-.tj-reveal.is-visible {
-	animation: tj-hero-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-/* Staggered group children — each child fades up in sequence once the
-   container becomes visible. Delay is set inline per child. */
+/* GSAP-animated elements that start hidden (see note above). */
+.tj-hero,
+.tj-reveal,
 .tj-stagger-child {
 	opacity: 0;
 }
-.is-visible > .tj-stagger-child,
-.is-visible .tj-stagger-child {
-	animation: tj-hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.tj-blob {
+	will-change: transform;
 }
 
-/* Scroll-aware nav (data-scrolled toggled by a vanilla scroll listener) */
+/* Scroll-aware nav (data-scrolled toggled by a GSAP ScrollTrigger) */
 .tj-nav {
 	transition:
 		background 0.35s ease,
@@ -480,8 +225,7 @@ a {
 	border-bottom: 1px solid var(--border);
 }
 
-/* Engagement (How we work) cards — hover lift + top accent bar + arrow nudge
-   (replaces the GSAP cardEnter/cardLeave timelines). */
+/* Engagement (How we work) cards — hover lift + top accent bar + arrow nudge */
 .tj-tier {
 	transition:
 		transform 0.35s ease,

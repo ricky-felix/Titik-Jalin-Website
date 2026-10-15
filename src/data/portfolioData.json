@@ -29,10 +29,10 @@
 	},
 	{
 		"id": 2,
-		"title": "Arisan Digital (Payflex or Hyro.id)",
+		"title": "Hyro.id",
 		"status": "In Progress",
 		"statusColor": "text-yellow-600",
-		"image": "./Hyro.png",
+		"image": "./Hyro_Homepage.png",
 		"alt": "Hyro.id website cover",
 		"url": "https://www.hyro.id/",
 		"tags": [
@@ -54,8 +54,8 @@
 	{
 		"id": 3,
 		"title": "The Residence",
-		"status": "In Progress",
-		"statusColor": "text-yellow-600",
+		"status": "Completed (Concept)",
+		"statusColor": "text-green-600",
 		"image": "./The_Residence_Homepage.webp",
 		"alt": "The Residence website cover",
 		"url": "https://the-residence-premium.vercel.app/",
@@ -78,7 +78,7 @@
 	{
 		"id": 5,
 		"title": "Mansyur Residence",
-		"status": "LIVE (Concept)",
+		"status": "Live (Concept)",
 		"statusColor": "text-green-600",
 		"image": "./Mansyur-Residence-Medan.png",
 		"alt": "Mansyur Residence Website cover",
@@ -102,7 +102,7 @@
 	{
 		"id": 5,
 		"title": "CV Karya Agung Sejati (KAS)",
-		"status": "LIVE",
+		"status": "Live",
 		"statusColor": "text-green-600",
 		"image": "./CVKAS-Homepage.png",
 		"alt": "CV Karya Agung Sejati (KAS) Website cover",
@@ -128,7 +128,7 @@
 		"title": "Net Orbit",
 		"status": "In Progress",
 		"statusColor": "text-orange-600",
-		"image": "./Net-Orbit-Homepage.png",
+		"image": "./Net_Orbit-Homepage.png",
 		"alt": "Net Orbit Website cover",
 		"url": "https://netorbit.app/",
 		"tags": [

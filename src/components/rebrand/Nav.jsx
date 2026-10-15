@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { ScrollTrigger, useGSAP } from "../../lib/gsap";
 
 const links = [
 	{ href: "#about", label: "About" },
@@ -7,18 +8,18 @@ const links = [
 	{ href: "#work", label: "Work" },
 ];
 
-// Fixed, scroll-aware navigation. The frosted-glass background is toggled by a
-// vanilla scroll listener (replaces the GSAP ScrollTrigger that set
-// `data-scrolled` in the original design).
+// Fixed, scroll-aware navigation. A ScrollTrigger toggles `data-scrolled`
+// (frosted-glass background) once the page scrolls past 70px.
 export function Nav() {
 	const [scrolled, setScrolled] = useState(false);
 
-	useEffect(() => {
-		const onScroll = () => setScrolled(window.scrollY > 70);
-		onScroll();
-		window.addEventListener("scroll", onScroll, { passive: true });
-		return () => window.removeEventListener("scroll", onScroll);
-	}, []);
+	useGSAP(() => {
+		ScrollTrigger.create({
+			start: 70,
+			end: "max",
+			onToggle: (self) => setScrolled(self.isActive),
+		});
+	});
 
 	return (
 		<nav

@@ -4,8 +4,8 @@ const MONO = "'JetBrains Mono', monospace";
 const SERIF = "'Newsreader', serif";
 
 export function Ethos() {
-	const [headRef, headVisible] = useReveal();
-	const [gridRef, gridVisible] = useReveal();
+	const [headRef] = useReveal();
+	const [gridRef] = useReveal();
 
 	return (
 		<section
@@ -13,11 +13,7 @@ export function Ethos() {
 			style={{ padding: "clamp(80px,11vh,130px) clamp(20px,5vw,64px)" }}
 		>
 			<div style={{ maxWidth: 1180, margin: "0 auto" }}>
-				<div
-					ref={headRef}
-					className={`tj-reveal ${headVisible ? "is-visible" : ""}`}
-					style={{ marginBottom: 44 }}
-				>
+				<div ref={headRef} className="tj-reveal" style={{ marginBottom: 44 }}>
 					<div
 						style={{
 							fontFamily: MONO,
@@ -49,7 +45,7 @@ export function Ethos() {
 
 				<div
 					ref={gridRef}
-					className={`tj-ethos-grid ${gridVisible ? "is-visible" : ""}`}
+					className="tj-ethos-grid"
 					style={{
 						display: "grid",
 						gridTemplateColumns: "1.1fr 2fr",
@@ -72,7 +68,6 @@ export function Ethos() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
-							animationDelay: "0s",
 						}}
 					>
 						<span
@@ -127,7 +122,6 @@ export function Ethos() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
-							animationDelay: "0.11s",
 						}}
 					>
 						<span
@@ -201,7 +195,6 @@ export function Ethos() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
-							animationDelay: "0.22s",
 						}}
 					>
 						<span

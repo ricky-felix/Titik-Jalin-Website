@@ -1,9 +1,11 @@
+import { useRef } from "react";
+import { gsap, useGSAP, EASE_OUT, prefersReducedMotion } from "../../lib/gsap";
+
 const MONO = "'JetBrains Mono', monospace";
 const SERIF = "'Newsreader', serif";
 
-// Ambient gradient blobs. Each gets a different colour, position, duration and
-// delay so the CSS `tj-blob` float reads as organic (replaces GSAP's random
-// per-element tween).
+// Ambient gradient blobs. Each gets a different colour and position; the
+// random GSAP drift (floatBlobs, wired up in Home) keeps them organic.
 const blobs = [
 	{
 		bg: "var(--blue)",
@@ -16,8 +18,6 @@ const blobs = [
 			maxWidth: 560,
 			maxHeight: 560,
 		},
-		dur: "11s",
-		delay: "0s",
 	},
 	{
 		bg: "var(--coral)",
@@ -30,8 +30,6 @@ const blobs = [
 			maxWidth: 520,
 			maxHeight: 520,
 		},
-		dur: "13.5s",
-		delay: "-3s",
 	},
 	{
 		bg: "var(--green-600)",
@@ -44,14 +42,38 @@ const blobs = [
 			maxWidth: 460,
 			maxHeight: 460,
 		},
-		dur: "16s",
-		delay: "-6s",
 	},
 ];
 
 export function Hero() {
+	const ref = useRef(null);
+
+	// Staggered load-in for the headline stack.
+	useGSAP(
+		() => {
+			if (prefersReducedMotion()) {
+				gsap.set(".tj-hero", { opacity: 1 });
+				return;
+			}
+			gsap.fromTo(
+				".tj-hero",
+				{ opacity: 0, y: 34 },
+				{
+					opacity: 1,
+					y: 0,
+					duration: 0.95,
+					ease: EASE_OUT,
+					stagger: 0.1,
+					delay: 0.15,
+				}
+			);
+		},
+		{ scope: ref }
+	);
+
 	return (
 		<section
+			ref={ref}
 			id="top"
 			style={{
 				position: "relative",
@@ -73,8 +95,6 @@ export function Hero() {
 						filter: `blur(${b.blur}px)`,
 						opacity: "var(--blob-o)",
 						zIndex: 0,
-						animationDuration: b.dur,
-						animationDelay: b.delay,
 						...b.style,
 					}}
 				/>
@@ -101,7 +121,6 @@ export function Hero() {
 						background: "var(--surface-2)",
 						backdropFilter: "blur(8px)",
 						marginBottom: 30,
-						animationDelay: "0.15s",
 					}}
 				>
 					<span
@@ -138,10 +157,7 @@ export function Hero() {
 						maxWidth: "14ch",
 					}}
 				>
-					<span
-						className="tj-hero"
-						style={{ display: "block", animationDelay: "0.25s" }}
-					>
+					<span className="tj-hero" style={{ display: "block" }}>
 						Big ideas start from a single dot
 					</span>
 					<span
@@ -150,7 +166,6 @@ export function Hero() {
 							display: "block",
 							fontStyle: "italic",
 							color: "var(--coral)",
-							animationDelay: "0.35s",
 						}}
 					>
 						grow into greatness.
@@ -166,7 +181,6 @@ export function Hero() {
 						maxWidth: "54ch",
 						margin: "28px 0 0",
 						fontWeight: 400,
-						animationDelay: "0.45s",
 					}}
 				>
 					Titik Jalin is an AI-augmented product studio. We weave design,
@@ -181,7 +195,6 @@ export function Hero() {
 						flexWrap: "wrap",
 						gap: 14,
 						marginTop: 38,
-						animationDelay: "0.55s",
 					}}
 				>
 					<a
@@ -236,7 +249,6 @@ export function Hero() {
 					alignItems: "center",
 					gap: 12,
 					color: "var(--text-3)",
-					animationDelay: "0.7s",
 				}}
 			>
 				<span

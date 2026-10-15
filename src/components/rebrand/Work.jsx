@@ -5,17 +5,16 @@ const MONO = "'JetBrains Mono', monospace";
 const SERIF = "'Newsreader', serif";
 
 // Tint cycle reused from the design's work cards.
-const tints = ["var(--blue)", "var(--green-600)", "var(--coral)", "var(--blue-600)"];
-
-// Map a project status to a dot color from the design tokens.
-const statusColors = {
-	Live: "var(--green-600)",
-	Mockup: "var(--coral)",
-};
+const tints = [
+	"var(--blue)",
+	"var(--green-600)",
+	"var(--coral)",
+	"var(--blue-600)",
+];
 
 export function Work() {
-	const [headRef, headVisible] = useReveal();
-	const [gridRef, gridVisible] = useReveal();
+	const [headRef] = useReveal();
+	const [gridRef] = useReveal();
 
 	return (
 		<section
@@ -29,7 +28,7 @@ export function Work() {
 			<div style={{ maxWidth: 1180, margin: "0 auto" }}>
 				<div
 					ref={headRef}
-					className={`tj-reveal ${headVisible ? "is-visible" : ""}`}
+					className="tj-reveal"
 					style={{
 						display: "flex",
 						alignItems: "flex-end",
@@ -70,7 +69,7 @@ export function Work() {
 
 				<div
 					ref={gridRef}
-					className={`tj-work-grid ${gridVisible ? "is-visible" : ""}`}
+					className="tj-work-grid"
 					style={{
 						display: "grid",
 						gridTemplateColumns: "repeat(2,1fr)",
@@ -79,7 +78,6 @@ export function Work() {
 				>
 					{portfolioProjects.map((project, i) => {
 						const tint = tints[i % tints.length];
-						const statusColor = statusColors[project.status] ?? "var(--text-3)";
 						return (
 							<a
 								key={project.id}
@@ -95,7 +93,6 @@ export function Work() {
 									borderRadius: 20,
 									overflow: "hidden",
 									background: "var(--surface)",
-									animationDelay: `${i * 0.11}s`,
 								}}
 							>
 								<div
@@ -142,6 +139,9 @@ export function Work() {
 									<div>
 										{project.status ? (
 											<span
+												className={
+													project.statusColor || "text-[var(--text-3)]"
+												}
 												style={{
 													display: "inline-flex",
 													alignItems: "center",
@@ -150,7 +150,6 @@ export function Work() {
 													fontSize: 11.5,
 													letterSpacing: "0.08em",
 													textTransform: "uppercase",
-													color: statusColor,
 												}}
 											>
 												<span
@@ -158,7 +157,7 @@ export function Work() {
 														width: 7,
 														height: 7,
 														borderRadius: "50%",
-														background: statusColor,
+														background: "currentColor",
 													}}
 												/>
 												{project.status}

@@ -37,8 +37,8 @@ const steps = [
 ];
 
 export function Brandt() {
-	const [headRef, headVisible] = useReveal();
-	const [gridRef, gridVisible] = useReveal();
+	const [headRef] = useReveal();
+	const [gridRef] = useReveal({ stagger: 0.09 });
 
 	return (
 		<section
@@ -62,7 +62,6 @@ export function Brandt() {
 					filter: "blur(90px)",
 					opacity: "calc(var(--blob-o) * 0.7)",
 					zIndex: 0,
-					animationDuration: "14s",
 				}}
 			/>
 			<div
@@ -75,7 +74,7 @@ export function Brandt() {
 			>
 				<div
 					ref={headRef}
-					className={`tj-reveal ${headVisible ? "is-visible" : ""}`}
+					className="tj-reveal"
 					style={{
 						display: "flex",
 						alignItems: "flex-end",
@@ -132,14 +131,14 @@ export function Brandt() {
 
 				<div
 					ref={gridRef}
-					className={`tj-brandt-grid ${gridVisible ? "is-visible" : ""}`}
+					className="tj-brandt-grid"
 					style={{
 						display: "grid",
 						gridTemplateColumns: "repeat(6,1fr)",
 						gap: 0,
 					}}
 				>
-					{steps.map((step, i) => (
+					{steps.map((step) => (
 						<div
 							key={step.letter}
 							className="tj-step tj-stagger-child"
@@ -147,7 +146,6 @@ export function Brandt() {
 								position: "relative",
 								padding: "34px clamp(14px,1.4vw,20px) 10px",
 								borderTop: "1px solid var(--border-2)",
-								animationDelay: `${i * 0.09}s`,
 							}}
 						>
 							<span

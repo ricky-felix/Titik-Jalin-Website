@@ -31,8 +31,8 @@ const services = [
 ];
 
 export function Services() {
-	const [headRef, headVisible] = useReveal();
-	const [listRef, listVisible] = useReveal();
+	const [headRef] = useReveal();
+	const [listRef] = useReveal();
 
 	return (
 		<section
@@ -45,7 +45,7 @@ export function Services() {
 			<div style={{ maxWidth: 1180, margin: "0 auto" }}>
 				<div
 					ref={headRef}
-					className={`tj-reveal ${headVisible ? "is-visible" : ""}`}
+					className="tj-reveal"
 					style={{
 						display: "flex",
 						alignItems: "flex-end",
@@ -96,7 +96,7 @@ export function Services() {
 					</p>
 				</div>
 
-				<div ref={listRef} className={listVisible ? "is-visible" : ""}>
+				<div ref={listRef}>
 					<div style={{ borderTop: "1px solid var(--border)" }} />
 					{services.map((s) => (
 						<div

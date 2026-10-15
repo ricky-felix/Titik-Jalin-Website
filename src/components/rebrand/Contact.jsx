@@ -3,7 +3,7 @@ import { useReveal } from "../../lib/useReveal";
 const SERIF = "'Newsreader', serif";
 
 export function Contact() {
-	const [ref, visible] = useReveal();
+	const [ref] = useReveal();
 
 	return (
 		<section
@@ -32,12 +32,11 @@ export function Contact() {
 					filter: "blur(95px)",
 					opacity: "calc(var(--blob-o) * 0.85)",
 					zIndex: 0,
-					animationDuration: "17s",
 				}}
 			/>
 			<div
 				ref={ref}
-				className={`tj-reveal ${visible ? "is-visible" : ""}`}
+				className="tj-reveal"
 				style={{
 					maxWidth: 880,
 					margin: "0 auto",

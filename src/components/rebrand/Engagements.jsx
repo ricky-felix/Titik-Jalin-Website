@@ -49,8 +49,8 @@ const tiers = [
 ];
 
 export function Engagements() {
-	const [headRef, headVisible] = useReveal();
-	const [gridRef, gridVisible] = useReveal();
+	const [headRef] = useReveal();
+	const [gridRef] = useReveal();
 
 	return (
 		<section
@@ -64,7 +64,7 @@ export function Engagements() {
 			<div style={{ maxWidth: 1180, margin: "0 auto" }}>
 				<div
 					ref={headRef}
-					className={`tj-reveal ${headVisible ? "is-visible" : ""}`}
+					className="tj-reveal"
 					style={{
 						display: "flex",
 						alignItems: "flex-end",
@@ -117,14 +117,14 @@ export function Engagements() {
 
 				<div
 					ref={gridRef}
-					className={`tj-tier-grid ${gridVisible ? "is-visible" : ""}`}
+					className="tj-tier-grid"
 					style={{
 						display: "grid",
 						gridTemplateColumns: "repeat(3,1fr)",
 						gap: 22,
 					}}
 				>
-					{tiers.map((svc, i) => (
+					{tiers.map((svc) => (
 						<div
 							key={svc.tag}
 							className="tj-tier tj-stagger-child"
@@ -135,7 +135,6 @@ export function Engagements() {
 								borderRadius: 20,
 								padding: "34px 30px 30px",
 								overflow: "hidden",
-								animationDelay: `${i * 0.11}s`,
 							}}
 						>
 							<div
@@ -276,8 +275,7 @@ export function Engagements() {
 									textDecoration: "none",
 								}}
 							>
-								{svc.cta}{" "}
-								<span className="tj-card-arrow">→</span>
+								{svc.cta} <span className="tj-card-arrow">→</span>
 							</a>
 						</div>
 					))}
