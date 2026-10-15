@@ -98,11 +98,8 @@ export function Work() {
 								<div
 									style={{
 										position: "relative",
-										aspectRatio: "16/10",
 										background:
 											"repeating-linear-gradient(135deg,var(--stripe-a) 0 13px,var(--stripe-b) 13px 26px)",
-										display: "grid",
-										placeItems: "center",
 										overflow: "hidden",
 									}}
 								>
@@ -110,11 +107,9 @@ export function Work() {
 										src={project.image}
 										alt={project.alt || project.title}
 										style={{
-											position: "absolute",
-											inset: 0,
+											display: "block",
 											width: "100%",
-											height: "100%",
-											objectFit: "cover",
+											height: "auto",
 										}}
 									/>
 									<div
