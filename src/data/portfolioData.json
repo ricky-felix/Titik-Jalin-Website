@@ -17,11 +17,11 @@
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			},
 			{
-				"name": "Industrial Design",
+				"name": "Online Cart",
 				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
 			},
 			{
-				"name": "Shopping Cart",
+				"name": "Industrial Design",
 				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
 			}
 		],
@@ -47,6 +47,10 @@
 			{
 				"name": "Web App Design & Development",
 				"hoverColor": "hover:bg-neutral-500 focus:bg-neutral-500"
+			},
+			{
+				"name": "Financial Technology (Fintech)",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
 			}
 		],
 		"description": "Arisan & Patungan dalam satu webapp. Arisan transparan. Patungan tanpa ribet."
@@ -71,6 +75,10 @@
 			{
 				"name": "FrontEnd Development",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Hospitality & Real Estate",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
 			}
 		],
 		"description": "Live Intelligently, Live Exceptionally. Smart Residence pertama di Medan, Indonesia."
@@ -95,6 +103,10 @@
 			{
 				"name": "FrontEnd Development",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
+				"name": "Hospitality & Real Estate",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
 			}
 		],
 		"description": "Apartemen pintar pertama di Medan yang menggabungkan teknologi canggih dengan desain modern. Hidup dengan cara yang belum pernah ada sebelumnya."
@@ -109,6 +121,10 @@
 		"url": "https://www.karyaagungsejati.com/",
 		"tags": [
 			{
+				"name": "FrontEnd Development",
+				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+			},
+			{
 				"name": "Branding Identity",
 				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
 			},
@@ -117,8 +133,8 @@
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			},
 			{
-				"name": "FrontEnd Development",
-				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
+				"name:": "Construction & Waterproofing",
+				"hoverColor": "hover:bg-primary-500 focus:bg-primary-500"
 			}
 		],
 		"description": "CV Karya Agung Sejati adalah perusahaan waterproofing yang berbasis di Medan, bekerja di antara perusahaan Indonesia lainnya. Membran, pelapis, injeksi — dispesifikasi, dipasang, dijamin."
@@ -145,7 +161,7 @@
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			},
 			{
-				"name": "Financial Technology (FinTech)",
+				"name": "FinTech (Financial Technology)",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			}
 		],
@@ -169,11 +185,11 @@
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			},
 			{
-				"name": "FullStack App Development",
+				"name": "FullStack WebApp and Artificial Intelligence Development",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			},
 			{
-				"name": "Artificial Intelligence",
+				"name": "Education & Language Learning",
 				"hoverColor": "hover:bg-secondary-500 focus:bg-secondary-500"
 			}
 		],
