@@ -30,8 +30,8 @@
 	{
 		"id": 2,
 		"title": "Hyro.id",
-		"status": "In Progress",
-		"statusColor": "text-yellow-600",
+		"status": "Live (Concept)",
+		"statusColor": "text-green-600",
 		"image": "./Hyro_Homepage.png",
 		"alt": "Hyro.id website cover",
 		"url": "https://www.hyro.id/",
