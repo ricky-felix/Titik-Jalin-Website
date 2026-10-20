@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"title": "Tokspace",
-		"status": "Live (Concept)",
+		"status": "Completed (Mockup)",
 		"statusColor": "text-green-600",
 		"image": "./Tokspace_Homepage.webp",
 		"alt": "Tokspace website cover",
@@ -30,7 +30,7 @@
 	{
 		"id": 2,
 		"title": "Hyro.id",
-		"status": "Live (Concept)",
+		"status": "Completed (Mockup)",
 		"statusColor": "text-green-600",
 		"image": "./Hyro_Homepage.png",
 		"alt": "Hyro.id website cover",
@@ -54,7 +54,7 @@
 	{
 		"id": 3,
 		"title": "The Residence",
-		"status": "Completed (Concept)",
+		"status": "Completed (Mockup)",
 		"statusColor": "text-green-600",
 		"image": "./The_Residence_Homepage.webp",
 		"alt": "The Residence website cover",
@@ -78,7 +78,7 @@
 	{
 		"id": 5,
 		"title": "Mansyur Residence",
-		"status": "Live (Concept)",
+		"status": "Live",
 		"statusColor": "text-green-600",
 		"image": "./Mansyur-Residence-Medan.png",
 		"alt": "Mansyur Residence Website cover",
